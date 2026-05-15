@@ -1,0 +1,140 @@
+# Entity: buoy
+
+main: kit: entity: buoy: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "air_temperature"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "atmospheric_pressure"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "average_wave_period"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "dominant_wave_period"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "latitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "station_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "water_temperature"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "wave_direction"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "wave_height"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "wind_direction"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "wind_speed"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "buoy"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/buoys.json"
+          parts: [
+            "buoys.json"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/buoys.csv"
+          parts: [
+            "buoys.csv"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/buoys.html"
+          parts: [
+            "buoys.html"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/buoys.xml"
+          parts: [
+            "buoys.xml"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

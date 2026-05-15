@@ -1,0 +1,229 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "NDBC Buoy Data API",
+    "description": "Access real-time buoy readings and information from the National Data Buoy Center (NDBC) with this API. Currently under development, it provides essential data for ocean and weather monitoring enthusiasts and professionals. Supports various content types, including JSON, XML, CSV, and HTML. Ideal for integrating buoy data into your applications or research projects.",
+    "version": "0.1.0",
+    "contact": {
+      "url": "https://surftruths.com/api.html"
+    },
+    "x-source": "https://www.ndbc.noaa.gov/",
+    "x-status": "Under Development"
+  },
+  "servers": [
+    {
+      "url": "https://surftruths.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/buoys.json": {
+      "get": {
+        "summary": "Get buoy data in JSON format",
+        "description": "Retrieves real-time buoy readings and information from the National Data Buoy Center in JSON format",
+        "operationId": "getBuoysJson",
+        "tags": [
+          "Buoys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with buoy data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Buoy"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/buoys.xml": {
+      "get": {
+        "summary": "Get buoy data in XML format",
+        "description": "Retrieves real-time buoy readings and information from the National Data Buoy Center in XML format",
+        "operationId": "getBuoysXml",
+        "tags": [
+          "Buoys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with buoy data",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "xml": {
+                    "name": "buoys"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/buoys.csv": {
+      "get": {
+        "summary": "Get buoy data in CSV format",
+        "description": "Retrieves real-time buoy readings and information from the National Data Buoy Center in CSV format",
+        "operationId": "getBuoysCsv",
+        "tags": [
+          "Buoys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with buoy data",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/buoys.html": {
+      "get": {
+        "summary": "Get buoy data in HTML format",
+        "description": "Retrieves real-time buoy readings and information from the National Data Buoy Center in HTML format",
+        "operationId": "getBuoysHtml",
+        "tags": [
+          "Buoys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with buoy data",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Buoy": {
+        "type": "object",
+        "description": "Buoy data object containing real-time readings and station information",
+        "properties": {
+          "station_id": {
+            "type": "string",
+            "description": "Unique identifier for the buoy station",
+            "example": "46025"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the buoy station",
+            "example": "Santa Monica Basin"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude coordinate of the buoy",
+            "example": 33.749
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude coordinate of the buoy",
+            "example": -119.053
+          },
+          "wave_height": {
+            "type": "number",
+            "format": "float",
+            "description": "Significant wave height in meters",
+            "example": 2.5
+          },
+          "dominant_wave_period": {
+            "type": "number",
+            "format": "float",
+            "description": "Dominant wave period in seconds",
+            "example": 14
+          },
+          "average_wave_period": {
+            "type": "number",
+            "format": "float",
+            "description": "Average wave period in seconds",
+            "example": 10.5
+          },
+          "wave_direction": {
+            "type": "number",
+            "format": "float",
+            "description": "Wave direction in degrees",
+            "example": 290
+          },
+          "water_temperature": {
+            "type": "number",
+            "format": "float",
+            "description": "Water temperature in Celsius",
+            "example": 15.5
+          },
+          "air_temperature": {
+            "type": "number",
+            "format": "float",
+            "description": "Air temperature in Celsius",
+            "example": 18.2
+          },
+          "wind_speed": {
+            "type": "number",
+            "format": "float",
+            "description": "Wind speed in meters per second",
+            "example": 7.5
+          },
+          "wind_direction": {
+            "type": "number",
+            "format": "float",
+            "description": "Wind direction in degrees",
+            "example": 315
+          },
+          "atmospheric_pressure": {
+            "type": "number",
+            "format": "float",
+            "description": "Atmospheric pressure in hPa",
+            "example": 1013.2
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the reading",
+            "example": "2023-10-15T14:30:00Z"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Buoys",
+      "description": "Operations related to NDBC buoy data and readings"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://surftruths.com/api.html"
+  }
+}

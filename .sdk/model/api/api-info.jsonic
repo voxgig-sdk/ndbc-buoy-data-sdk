@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://surftruths.com/api.html"
+      }
+      description: "Access real-time buoy readings and information from the National Data Buoy Center (NDBC) with this API. Currently under development, it provides essential data for ocean and weather monitoring enthusiasts and professionals. Supports various content types, including JSON, XML, CSV, and HTML. Ideal for integrating buoy data into your applications or research projects."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://surftruths.com/api"
+        }
+      ]
+      title: "NDBC Buoy Data API"
+      version: "0.1.0"
+      "x-source": "https://www.ndbc.noaa.gov/"
+      "x-status": "Under Development"
+    }
+  }
+}
+
+}

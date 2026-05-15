@@ -1,0 +1,23 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: buoy: {
+    path: "/buoys.csv": {
+      op: load: method: *GET
+    }
+    path: "/buoys.html": {
+      op: load: method: *GET
+    }
+    path: "/buoys.json": {
+      op: list: method: *GET
+    }
+    path: "/buoys.xml": {
+      op: load: method: *GET
+    }
+  }
+
+}

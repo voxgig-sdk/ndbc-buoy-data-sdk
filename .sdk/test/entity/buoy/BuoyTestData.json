@@ -1,0 +1,74 @@
+{
+  "existing": {
+    "buoy": {
+      "BUOY00": {
+        "air_temperature": 140,
+        "atmospheric_pressure": 141,
+        "average_wave_period": 142,
+        "dominant_wave_period": 143,
+        "latitude": 144,
+        "longitude": 145,
+        "name": "s92",
+        "station_id": "STATION01",
+        "timestamp": "s94",
+        "water_temperature": 149,
+        "wave_direction": 150,
+        "wave_height": 151,
+        "wind_direction": 152,
+        "wind_speed": 153
+      },
+      "BUOY01": {
+        "air_temperature": 280,
+        "atmospheric_pressure": 281,
+        "average_wave_period": 282,
+        "dominant_wave_period": 283,
+        "latitude": 284,
+        "longitude": 285,
+        "name": "s11e",
+        "station_id": "STATION01",
+        "timestamp": "s120",
+        "water_temperature": 289,
+        "wave_direction": 290,
+        "wave_height": 291,
+        "wind_direction": 292,
+        "wind_speed": 293
+      },
+      "BUOY02": {
+        "air_temperature": 420,
+        "atmospheric_pressure": 421,
+        "average_wave_period": 422,
+        "dominant_wave_period": 423,
+        "latitude": 424,
+        "longitude": 425,
+        "name": "s1aa",
+        "station_id": "STATION01",
+        "timestamp": "s1ac",
+        "water_temperature": 429,
+        "wave_direction": 430,
+        "wave_height": 431,
+        "wind_direction": 432,
+        "wind_speed": 433
+      }
+    }
+  },
+  "new": {
+    "buoy": {
+      "buoy_ref01": {
+        "air_temperature": 560,
+        "atmospheric_pressure": 561,
+        "average_wave_period": 562,
+        "dominant_wave_period": 563,
+        "latitude": 564,
+        "longitude": 565,
+        "name": "s236",
+        "station_id": "STATION01",
+        "timestamp": "s238",
+        "water_temperature": 569,
+        "wave_direction": 570,
+        "wave_height": 571,
+        "wind_direction": 572,
+        "wind_speed": 573
+      }
+    }
+  }
+}
