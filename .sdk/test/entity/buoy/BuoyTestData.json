@@ -15,7 +15,8 @@
         "wave_direction": 150,
         "wave_height": 151,
         "wind_direction": 152,
-        "wind_speed": 153
+        "wind_speed": 153,
+        "id": "BUOY00"
       },
       "BUOY01": {
         "air_temperature": 280,
@@ -31,7 +32,8 @@
         "wave_direction": 290,
         "wave_height": 291,
         "wind_direction": 292,
-        "wind_speed": 293
+        "wind_speed": 293,
+        "id": "BUOY01"
       },
       "BUOY02": {
         "air_temperature": 420,
@@ -47,7 +49,8 @@
         "wave_direction": 430,
         "wave_height": 431,
         "wind_direction": 432,
-        "wind_speed": 433
+        "wind_speed": 433,
+        "id": "BUOY02"
       }
     }
   },

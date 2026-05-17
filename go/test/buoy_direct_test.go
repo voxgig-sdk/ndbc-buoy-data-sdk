@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ndbc-buoy-data-sdk"
-	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/core"
+	sdk "github.com/voxgig-sdk/ndbc-buoy-data-sdk/go"
+	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/go/core"
 )
 
 func TestBuoyDirect(t *testing.T) {

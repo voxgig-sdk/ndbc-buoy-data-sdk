@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/ndbc-buoy-data-sdk"
-	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/core"
+	sdk "github.com/voxgig-sdk/ndbc-buoy-data-sdk/go"
+	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/ndbc-buoy-data-sdk/go/utility/struct"
 )
 
 func TestBuoyEntity(t *testing.T) {

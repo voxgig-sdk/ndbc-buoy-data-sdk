@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/core"
+	"github.com/voxgig-sdk/ndbc-buoy-data-sdk/go/core"
 )
 
 type LogFeature struct {
