@@ -18,8 +18,27 @@ main: {
       version: "0.1.0"
       "x-source": "https://www.ndbc.noaa.gov/"
       "x-status": "Under Development"
+      tagline: "Real-time NOAA buoy readings and tide-station data, served as JSON, XML, CSV, or HTML"
+      homepage: "https://surftruths.com/api"
+      docs_url: "https://surftruths.com/api"
+      license_short: "No licence stated; data sourced from NOAA / NDBC (US public domain)."
+      license_md: `- The SurfTruths wrapper API does not publish an explicit licence.
+- Underlying observations come from the NOAA National Data Buoy Center (NDBC) and NOAA Tides & Currents, whose data are in the US public domain.
+- Attribution to NOAA / NDBC is customary when redistributing the readings.
+- The API documentation notes the service is still under development and may change.`
+      about_md: `The NDBC Buoy Data API is a community wrapper operated by [SurfTruths](https://surftruths.com/api) that re-serves real-time marine observations from the US National Oceanic and Atmospheric Administration's [National Data Buoy Center](https://www.ndbc.noaa.gov/). It is aimed at surf, sailing, and ocean-monitoring applications that want NOAA data in a friendlier format.
+
+What you get from the API:
+
+- Real-time buoy readings from NDBC stations (\`/api/buoys.json\`, also available as \`.xml\`, \`.csv\`, \`.html\`).
+- NOAA tide-station predictions (\`/api/tide/stations.json\` and equivalent formats).
+- Sibling GFS forecast-location endpoints are listed alongside on the same host.
+
+The service is open and requires no authentication. CORS is reported as disabled, so browser clients may need to proxy requests. The provider notes the API is still under development and endpoints may change.`
+      entity_desc: {
+        buoy: "A National Data Buoy Center observation station; listings and readings are exposed at `/api/buoys.json` (with `.xml`, `.csv`, and `.html` variants)."
+      }
+      auth: false
     }
   }
-}
-
 }

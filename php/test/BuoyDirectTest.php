@@ -113,14 +113,12 @@ function buoy_direct_setup($mockres)
     $env = Runner::env_override([
         "NDBCBUOYDATA_TEST_BUOY_ENTID" => [],
         "NDBCBUOYDATA_TEST_LIVE" => "FALSE",
-        "NDBCBUOYDATA_APIKEY" => "NONE",
     ]);
 
     $live = $env["NDBCBUOYDATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["NDBCBUOYDATA_APIKEY"],
         ];
         $client = new NdbcBuoyDataSDK($merged_opts);
         return [

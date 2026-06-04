@@ -119,7 +119,6 @@ function basicSetup(extra?: any) {
     'NDBC_BUOY_DATA_TEST_BUOY_ENTID': idmap,
     'NDBC_BUOY_DATA_TEST_LIVE': 'FALSE',
     'NDBC_BUOY_DATA_TEST_EXPLAIN': 'FALSE',
-    'NDBC_BUOY_DATA_APIKEY': 'NONE',
   })
 
   idmap = env['NDBC_BUOY_DATA_TEST_BUOY_ENTID']
@@ -129,7 +128,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new NdbcBuoyDataSDK(merge([
       {
-        apikey: env.NDBC_BUOY_DATA_APIKEY,
       },
       extra
     ]))

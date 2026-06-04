@@ -92,7 +92,6 @@ function buoy_basic_setup($extra)
         "NDBCBUOYDATA_TEST_BUOY_ENTID" => $idmap,
         "NDBCBUOYDATA_TEST_LIVE" => "FALSE",
         "NDBCBUOYDATA_TEST_EXPLAIN" => "FALSE",
-        "NDBCBUOYDATA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +103,6 @@ function buoy_basic_setup($extra)
     if ($env["NDBCBUOYDATA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["NDBCBUOYDATA_APIKEY"],
             ],
             $extra ?? [],
         ]);

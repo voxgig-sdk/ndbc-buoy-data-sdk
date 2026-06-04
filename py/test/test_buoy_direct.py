@@ -99,14 +99,12 @@ def _buoy_direct_setup(mockres):
     env = runner.env_override({
         "NDBCBUOYDATA_TEST_BUOY_ENTID": {},
         "NDBCBUOYDATA_TEST_LIVE": "FALSE",
-        "NDBCBUOYDATA_APIKEY": "NONE",
     })
 
     live = env.get("NDBCBUOYDATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("NDBCBUOYDATA_APIKEY"),
         }
         client = NdbcBuoyDataSDK(merged_opts)
         return {
