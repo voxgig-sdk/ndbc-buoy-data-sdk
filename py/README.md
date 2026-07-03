@@ -10,7 +10,7 @@ The Python SDK for the NdbcBuoyData API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install ndbc-buoy-data-sdk
+pip install voxgig-sdk-ndbc-buoy-data
 ```
 
 Or install from source:

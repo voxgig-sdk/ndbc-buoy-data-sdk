@@ -10,13 +10,13 @@ The Ruby SDK for the NdbcBuoyData API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install ndbc-buoy-data-sdk
+gem install voxgig-sdk-ndbc-buoy-data
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "ndbc-buoy-data-sdk"
+gem "voxgig-sdk-ndbc-buoy-data"
 ```
 
 Then run:

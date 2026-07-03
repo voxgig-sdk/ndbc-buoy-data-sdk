@@ -10,7 +10,7 @@ The PHP SDK for the NdbcBuoyData API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/ndbc-buoy-data-sdk
+composer require voxgig-sdk/ndbc-buoy-data
 ```
 
 

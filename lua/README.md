@@ -10,7 +10,7 @@ The Lua SDK for the NdbcBuoyData API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install ndbc-buoy-data-sdk
+luarocks install voxgig-sdk-ndbc-buoy-data
 ```
 
 If the module is not yet published, add the source directory to

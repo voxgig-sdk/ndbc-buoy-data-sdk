@@ -8,12 +8,14 @@ source = {
   dir = "ndbc-buoy-data-sdk/lua"
 }
 description = {
-  summary = "NdbcBuoyData SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the NDBC Buoy Data public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/ndbc-buoy-data-sdk",
+  issues_url = "https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "ndbc-buoy-data" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The TypeScript SDK for the NdbcBuoyData API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install ndbc-buoy-data
+npm install @voxgig-sdk/ndbc-buoy-data
 ```
 ## Tutorial: your first API call
 
