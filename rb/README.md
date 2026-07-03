@@ -1,6 +1,11 @@
 # NdbcBuoyData Ruby SDK
 
-The Ruby SDK for the NdbcBuoyData API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the NdbcBuoyData API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "NdbcBuoyData_sdk"
 
-client = NdbcBuoyDataSDK.new({})
+client = NdbcBuoyDataSDK.new({
+  "apikey" => ENV["NDBC-BUOY-DATA_APIKEY"],
+})
 ```
 
 ### 2. List buoys
 
 ```ruby
-result, err = client.Buoy(nil).list(nil, nil)
+result, err = client.Buoy().list
 raise err if err
 
 if result.is_a?(Array)
@@ -51,7 +58,7 @@ end
 ### 3. Load a buoy
 
 ```ruby
-result, err = client.Buoy(nil).load({ "id" => "example_id" }, nil)
+result, err = client.Buoy().load({ "id" => "example_id" })
 raise err if err
 puts result
 ```
@@ -97,11 +104,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = NdbcBuoyDataSDK.test(nil, nil)
+client = NdbcBuoyDataSDK.test
 
-result, err = client.NdbcBuoyData(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.NdbcBuoyData().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -133,6 +138,7 @@ Create a `.env.local` file at the project root:
 
 ```
 NDBC-BUOY-DATA_TEST_LIVE=TRUE
+NDBC-BUOY-DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -155,6 +161,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

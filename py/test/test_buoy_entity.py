@@ -98,6 +98,7 @@ def _buoy_basic_setup(extra):
         "NDBCBUOYDATA_TEST_BUOY_ENTID": idmap,
         "NDBCBUOYDATA_TEST_LIVE": "FALSE",
         "NDBCBUOYDATA_TEST_EXPLAIN": "FALSE",
+        "NDBCBUOYDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -108,6 +109,7 @@ def _buoy_basic_setup(extra):
     if env.get("NDBCBUOYDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("NDBCBUOYDATA_APIKEY"),
             },
             extra or {},
         ])

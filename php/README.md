@@ -1,6 +1,11 @@
 # NdbcBuoyData PHP SDK
 
-The PHP SDK for the NdbcBuoyData API. Provides an entity-oriented interface using PHP conventions.
+
+
+The PHP SDK for the NdbcBuoyData API — an entity-oriented client using PHP conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -20,13 +25,15 @@ loading a specific record.
 <?php
 require_once 'ndbcbuoydata_sdk.php';
 
-$client = new NdbcBuoyDataSDK([]);
+$client = new NdbcBuoyDataSDK([
+    "apikey" => getenv("NDBC-BUOY-DATA_APIKEY"),
+]);
 ```
 
 ### 2. List buoys
 
 ```php
-[$result, $err] = $client->Buoy(null)->list(null, null);
+[$result, $err] = $client->Buoy()->list();
 if ($err) { throw new \Exception($err); }
 
 if (is_array($result)) {
@@ -40,7 +47,7 @@ if (is_array($result)) {
 ### 3. Load a buoy
 
 ```php
-[$result, $err] = $client->Buoy(null)->load(["id" => "example_id"], null);
+[$result, $err] = $client->Buoy()->load(["id" => "example_id"]);
 if ($err) { throw new \Exception($err); }
 print_r($result);
 ```
@@ -86,11 +93,9 @@ print_r($fetchdef["headers"]);
 Create a mock client for unit testing — no server required:
 
 ```php
-$client = NdbcBuoyDataSDK::test(null, null);
+$client = NdbcBuoyDataSDK::test();
 
-[$result, $err] = $client->NdbcBuoyData(null)->load(
-    ["id" => "test01"], null
-);
+[$result, $err] = $client->NdbcBuoyData()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 NDBC-BUOY-DATA_TEST_LIVE=TRUE
+NDBC-BUOY-DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

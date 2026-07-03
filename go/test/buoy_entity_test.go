@@ -129,6 +129,7 @@ func buoyBasicSetup(extra map[string]any) *entityTestSetup {
 		"NDBCBUOYDATA_TEST_BUOY_ENTID": idmap,
 		"NDBCBUOYDATA_TEST_LIVE":      "FALSE",
 		"NDBCBUOYDATA_TEST_EXPLAIN":   "FALSE",
+		"NDBCBUOYDATA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["NDBCBUOYDATA_TEST_BUOY_ENTID"])
@@ -139,6 +140,7 @@ func buoyBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["NDBCBUOYDATA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["NDBCBUOYDATA_APIKEY"],
 			},
 			extra,
 		})

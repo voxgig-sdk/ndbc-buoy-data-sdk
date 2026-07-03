@@ -1,6 +1,11 @@
 # NdbcBuoyData Python SDK
 
-The Python SDK for the NdbcBuoyData API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the NdbcBuoyData API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from ndbcbuoydata_sdk import NdbcBuoyDataSDK
 
-client = NdbcBuoyDataSDK({})
+client = NdbcBuoyDataSDK({
+    "apikey": os.environ.get("NDBC-BUOY-DATA_APIKEY"),
+})
 ```
 
 ### 2. List buoys
 
 ```python
-result, err = client.Buoy(None).list(None, None)
+result, err = client.Buoy().list()
 if err:
     raise Exception(err)
 
@@ -44,7 +52,7 @@ if isinstance(result, list):
 ### 3. Load a buoy
 
 ```python
-result, err = client.Buoy(None).load({"id": "example_id"}, None)
+result, err = client.Buoy().load({"id": "example_id"})
 if err:
     raise Exception(err)
 print(result)
@@ -92,11 +100,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = NdbcBuoyDataSDK.test(None, None)
+client = NdbcBuoyDataSDK.test()
 
-result, err = client.NdbcBuoyData(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.NdbcBuoyData().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -127,6 +133,7 @@ Create a `.env.local` file at the project root:
 
 ```
 NDBC-BUOY-DATA_TEST_LIVE=TRUE
+NDBC-BUOY-DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,6 +157,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

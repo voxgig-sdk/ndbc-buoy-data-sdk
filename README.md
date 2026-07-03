@@ -1,20 +1,8 @@
 # NdbcBuoyData SDK
 
-Real-time NOAA buoy readings and tide-station data, served as JSON, XML, CSV, or HTML
+NDBC Buoy Data API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About NDBC Buoy Data API
-
-The NDBC Buoy Data API is a community wrapper operated by [SurfTruths](https://surftruths.com/api) that re-serves real-time marine observations from the US National Oceanic and Atmospheric Administration's [National Data Buoy Center](https://www.ndbc.noaa.gov/). It is aimed at surf, sailing, and ocean-monitoring applications that want NOAA data in a friendlier format.
-
-What you get from the API:
-
-- Real-time buoy readings from NDBC stations (`/api/buoys.json`, also available as `.xml`, `.csv`, `.html`).
-- NOAA tide-station predictions (`/api/tide/stations.json` and equivalent formats).
-- Sibling GFS forecast-location endpoints are listed alongside on the same host.
-
-The service is open and requires no authentication. CORS is reported as disabled, so browser clients may need to proxy requests. The provider notes the API is still under development and endpoints may change.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install ndbc-buoy-data-sdk
 luarocks install ndbc-buoy-data-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { NdbcBuoyDataSDK } from 'ndbc-buoy-data'
 
-const client = new NdbcBuoyDataSDK({})
+const client = new NdbcBuoyDataSDK({
+  apikey: process.env.NDBC-BUOY-DATA_APIKEY,
+})
 
 // List all buoys
 const buoys = await client.Buoy().list()
+console.log(buoys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Buoy** | A National Data Buoy Center observation station; listings and readings are exposed at `/api/buoys.json` (with `.xml`, `.csv`, and `.html` variants). | `/buoys.json` |
+| **Buoy** |  | `/buoys.json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ndbcbuoydata_sdk import NdbcBuoyDataSDK
 
-client = NdbcBuoyDataSDK({})
+client = NdbcBuoyDataSDK({
+    "apikey": os.environ.get("NDBC-BUOY-DATA_APIKEY"),
+})
 
 # List all buoys
-buoys, err = client.Buoy(None).list(None, None)
+buoys, err = client.Buoy().list()
+print(buoys)
 
 # Load a specific buoy
-buoy, err = client.Buoy(None).load(
-    {"id": "example_id"}, None
-)
+buoy, err = client.Buoy().load({"id": "example_id"})
+print(buoy)
 ```
 
 ### PHP
@@ -129,15 +122,17 @@ buoy, err = client.Buoy(None).load(
 <?php
 require_once 'ndbcbuoydata_sdk.php';
 
-$client = new NdbcBuoyDataSDK([]);
+$client = new NdbcBuoyDataSDK([
+    "apikey" => getenv("NDBC-BUOY-DATA_APIKEY"),
+]);
 
 // List all buoys
-[$buoys, $err] = $client->Buoy(null)->list(null, null);
+[$buoys, $err] = $client->Buoy()->list();
+print_r($buoys);
 
 // Load a specific buoy
-[$buoy, $err] = $client->Buoy(null)->load(
-    ["id" => "example_id"], null
-);
+[$buoy, $err] = $client->Buoy()->load(["id" => "example_id"]);
+print_r($buoy);
 ```
 
 ### Golang
@@ -145,10 +140,13 @@ $client = new NdbcBuoyDataSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ndbc-buoy-data-sdk/go"
 
-client := sdk.NewNdbcBuoyDataSDK(map[string]any{})
+client := sdk.NewNdbcBuoyDataSDK(map[string]any{
+    "apikey": os.Getenv("NDBC-BUOY-DATA_APIKEY"),
+})
 
 // List all buoys
 buoys, err := client.Buoy(nil).List(nil, nil)
+fmt.Println(buoys)
 ```
 
 ### Ruby
@@ -156,15 +154,17 @@ buoys, err := client.Buoy(nil).List(nil, nil)
 ```ruby
 require_relative "NdbcBuoyData_sdk"
 
-client = NdbcBuoyDataSDK.new({})
+client = NdbcBuoyDataSDK.new({
+  "apikey" => ENV["NDBC-BUOY-DATA_APIKEY"],
+})
 
 # List all buoys
-buoys, err = client.Buoy(nil).list(nil, nil)
+buoys, err = client.Buoy().list
+puts buoys
 
 # Load a specific buoy
-buoy, err = client.Buoy(nil).load(
-  { "id" => "example_id" }, nil
-)
+buoy, err = client.Buoy().load({ "id" => "example_id" })
+puts buoy
 ```
 
 ### Lua
@@ -172,15 +172,17 @@ buoy, err = client.Buoy(nil).load(
 ```lua
 local sdk = require("ndbc-buoy-data_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("NDBC-BUOY-DATA_APIKEY"),
+})
 
 -- List all buoys
-local buoys, err = client:Buoy(nil):list(nil, nil)
+local buoys, err = client:Buoy():list()
+print(buoys)
 
 -- Load a specific buoy
-local buoy, err = client:Buoy(nil):load(
-  { id = "example_id" }, nil
-)
+local buoy, err = client:Buoy():load({ id = "example_id" })
+print(buoy)
 ```
 
 ## Unit testing in offline mode
@@ -199,25 +201,21 @@ const result = await client.Buoy().load({ id: 'test01' })
 ### Python
 
 ```python
-client = NdbcBuoyDataSDK.test(None, None)
-result, err = client.Buoy(None).load(
-    {"id": "test01"}, None
-)
+client = NdbcBuoyDataSDK.test()
+result, err = client.Buoy().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = NdbcBuoyDataSDK::test(null, null);
-[$result, $err] = $client->Buoy(null)->load(
-    ["id" => "test01"], null
-);
+$client = NdbcBuoyDataSDK::test();
+[$result, $err] = $client->Buoy()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Buoy(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -226,19 +224,15 @@ result, err := client.Buoy(nil).Load(
 ### Ruby
 
 ```ruby
-client = NdbcBuoyDataSDK.test(nil, nil)
-result, err = client.Buoy(nil).load(
-  { "id" => "test01" }, nil
-)
+client = NdbcBuoyDataSDK.test
+result, err = client.Buoy().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Buoy(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Buoy():load({ id = "test01" })
 ```
 
 ## How it works
@@ -342,15 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the NDBC Buoy Data API
-
-- Upstream: [https://surftruths.com/api](https://surftruths.com/api)
-
-- The SurfTruths wrapper API does not publish an explicit licence.
-- Underlying observations come from the NOAA National Data Buoy Center (NDBC) and NOAA Tides & Currents, whose data are in the US public domain.
-- Attribution to NOAA / NDBC is customary when redistributing the readings.
-- The API documentation notes the service is still under development and may change.
 
 ---
 
