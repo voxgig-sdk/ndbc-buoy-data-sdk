@@ -55,6 +55,9 @@ class BuoyEntity
         return new BuoyEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Buoy|array $args Buoy data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class BuoyEntity
         }
     }
 
+    /**
+     * @return Buoy|array The current Buoy data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Buoy fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class BuoyEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Buoy fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class BuoyEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single Buoy.
+     *
+     * @param BuoyLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed BuoyLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Buoy|array The loaded Buoy as an assoc-array at the
+     *   SDK boundary; throws NdbcBuoyDataError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -110,7 +131,16 @@ class BuoyEntity
 
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List Buoy items matching the given filter.
+     *
+     * @param BuoyListMatch|array|null $reqmatch Match filter (any subset
+     *   of Buoy fields) as an assoc-array; BuoyListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Buoy[]|array A list of Buoy items as assoc-arrays at
+     *   the SDK boundary; throws NdbcBuoyDataError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -138,7 +168,7 @@ class BuoyEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

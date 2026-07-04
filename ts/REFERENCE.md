@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `NdbcBuoyDataSDK.test()`.
 ## BuoyEntity
 
 ```ts
-const buoy = client.Buoy()
+const buoy = client.buoy
 ```
 
 ### Fields
@@ -139,7 +138,7 @@ const buoy = client.Buoy()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Buoy().list()
+const results = await client.buoy.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -147,7 +146,7 @@ const results = await client.Buoy().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Buoy().load({ id: 'buoy_id' })
+const result = await client.buoy.load({ id: 'buoy_id' })
 ```
 
 ### Common Methods

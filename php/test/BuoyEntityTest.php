@@ -50,14 +50,12 @@ class BuoyEntityTest extends TestCase
         $buoy_ref01_ent = $client->Buoy(null);
         $buoy_ref01_match = [];
 
-        [$buoy_ref01_list_result, $err] = $buoy_ref01_ent->list($buoy_ref01_match, null);
-        $this->assertNull($err);
+        $buoy_ref01_list_result = $buoy_ref01_ent->list($buoy_ref01_match, null);
         $this->assertIsArray($buoy_ref01_list_result);
 
         // LOAD
         $buoy_ref01_match_dt0 = [];
-        [$buoy_ref01_data_dt0_loaded, $err] = $buoy_ref01_ent->load($buoy_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $buoy_ref01_data_dt0_loaded = $buoy_ref01_ent->load($buoy_ref01_match_dt0, null);
         $this->assertNotNull($buoy_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function buoy_basic_setup($extra)
         "NDBCBUOYDATA_TEST_BUOY_ENTID" => $idmap,
         "NDBCBUOYDATA_TEST_LIVE" => "FALSE",
         "NDBCBUOYDATA_TEST_EXPLAIN" => "FALSE",
-        "NDBCBUOYDATA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function buoy_basic_setup($extra)
     if ($env["NDBCBUOYDATA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["NDBCBUOYDATA_APIKEY"],
             ],
             $extra ?? [],
         ]);

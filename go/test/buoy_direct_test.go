@@ -164,14 +164,12 @@ func buoyDirectSetup(mockres any) *buoyDirectSetupResult {
 	env := envOverride(map[string]any{
 		"NDBCBUOYDATA_TEST_BUOY_ENTID": map[string]any{},
 		"NDBCBUOYDATA_TEST_LIVE":    "FALSE",
-		"NDBCBUOYDATA_APIKEY":       "NONE",
 	})
 
 	live := env["NDBCBUOYDATA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["NDBCBUOYDATA_APIKEY"],
 		}
 		client := sdk.NewNdbcBuoyDataSDK(mergedOpts)
 

@@ -135,14 +135,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'NDBCBUOYDATA_TEST_BUOY_ENTID': {},
     'NDBCBUOYDATA_TEST_LIVE': 'FALSE',
-    'NDBCBUOYDATA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.NDBCBUOYDATA_TEST_LIVE
 
   if (live) {
     const client = new NdbcBuoyDataSDK({
-      apikey: env.NDBCBUOYDATA_APIKEY,
     })
 
     let idmap: any = env['NDBCBUOYDATA_TEST_BUOY_ENTID']

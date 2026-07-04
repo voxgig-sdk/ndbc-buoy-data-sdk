@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch BuoyLoadMatch
+---@param ctrl? table
+---@return Buoy
+---@return string? err
 function BuoyEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch BuoyListMatch
+---@param ctrl? table
+---@return Buoy[]
+---@return string? err
 function BuoyEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -20,9 +20,6 @@ class NdbcBuoyDataConfig
             ],
             "options" => [
                 "base" => "https://surftruths.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

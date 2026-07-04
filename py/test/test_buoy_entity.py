@@ -50,14 +50,12 @@ class TestBuoyEntity:
         buoy_ref01_ent = client.Buoy(None)
         buoy_ref01_match = {}
 
-        buoy_ref01_list_result, err = buoy_ref01_ent.list(buoy_ref01_match, None)
-        assert err is None
+        buoy_ref01_list_result = buoy_ref01_ent.list(buoy_ref01_match, None)
         assert isinstance(buoy_ref01_list_result, list)
 
         # LOAD
         buoy_ref01_match_dt0 = {}
-        buoy_ref01_data_dt0_loaded, err = buoy_ref01_ent.load(buoy_ref01_match_dt0, None)
-        assert err is None
+        buoy_ref01_data_dt0_loaded = buoy_ref01_ent.load(buoy_ref01_match_dt0, None)
         assert buoy_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _buoy_basic_setup(extra):
         "NDBCBUOYDATA_TEST_BUOY_ENTID": idmap,
         "NDBCBUOYDATA_TEST_LIVE": "FALSE",
         "NDBCBUOYDATA_TEST_EXPLAIN": "FALSE",
-        "NDBCBUOYDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _buoy_basic_setup(extra):
     if env.get("NDBCBUOYDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("NDBCBUOYDATA_APIKEY"),
             },
             extra or {},
         ])
