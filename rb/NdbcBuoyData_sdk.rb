@@ -208,13 +208,7 @@ class NdbcBuoyDataSDK
   end
 
 
-  # Idiomatic facade: client.buoy.list / client.buoy.load({ "id" => ... })
-  def buoy
-    require_relative 'entity/buoy_entity'
-    @buoy ||= BuoyEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.buoy instead.
+  # Canonical facade: client.Buoy.list / client.Buoy.load({ "id" => ... })
   def Buoy(data = nil)
     require_relative 'entity/buoy_entity'
     BuoyEntity.new(self, data)

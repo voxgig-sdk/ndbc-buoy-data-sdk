@@ -233,10 +233,10 @@ class NdbcBuoyDataSDK
 
     private $_buoy = null;
 
-    // Idiomatic facade: $client->buoy()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Buoy() (PHP method
-    // names are case-insensitive).
-    public function buoy($data = null)
+    // Canonical facade: $client->Buoy()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->buoy()
+    // resolves here too.
+    public function Buoy($data = null)
     {
         require_once __DIR__ . '/entity/buoy_entity.php';
         if ($data === null) {

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:buoy():list() / client:buoy():load({ id = ... })
-function NdbcBuoyDataSDK:buoy(data)
+-- Idiomatic facade: client:Buoy():list() / client:Buoy():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NdbcBuoyDataSDK:Buoy(data)
   local EntityMod = require("entity.buoy_entity")
   if data == nil then
     if self._buoy == nil then
@@ -253,12 +254,6 @@ function NdbcBuoyDataSDK:buoy(data)
     end
     return self._buoy
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:buoy() instead.
-function NdbcBuoyDataSDK:Buoy(data)
-  local EntityMod = require("entity.buoy_entity")
   return EntityMod.new(self, data)
 end
 

@@ -26,9 +26,11 @@ import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data'
 
 const client = new NdbcBuoyDataSDK()
 
-// List all buoys
-const buoys = await client.buoy.list()
-console.log(buoys.data)
+// List all buoys (returns Buoy[])
+const buoys = await client.Buoy().list()
+for (const buoy of buoys) {
+  console.log(buoy)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from ndbcbuoydata_sdk import NdbcBuoyDataSDK
 
 client = NdbcBuoyDataSDK()
 
-# List all buoys
-buoys = client.buoy.list()
-print(buoys)
+# List all buoys (returns a list, raises on error)
+buoys = client.Buoy().list({})
+for buoy in buoys:
+    print(buoy)
 
-# Load a specific buoy
-buoy = client.buoy.load({"id": "example_id"})
+# Load a specific buoy (returns the record, raises on error)
+buoy = client.Buoy().load({"id": "example_id"})
 print(buoy)
 ```
 
@@ -100,12 +103,12 @@ require_once 'ndbcbuoydata_sdk.php';
 
 $client = new NdbcBuoyDataSDK();
 
-// List all buoys (throws on error)
-$buoys = $client->buoy()->list();
+// List all buoys (returns an array; throws on error)
+$buoys = $client->Buoy()->list();
 print_r($buoys);
 
-// Load a specific buoy
-$buoy = $client->buoy()->load(["id" => "example_id"]);
+// Load a specific buoy (returns the bare record; throws on error)
+$buoy = $client->Buoy()->load(["id" => "example_id"]);
 print_r($buoy);
 ```
 
@@ -128,12 +131,12 @@ require_relative "NdbcBuoyData_sdk"
 
 client = NdbcBuoyDataSDK.new
 
-# List all buoys
-buoys = client.buoy.list
+# List all buoys (returns an Array; raises on error)
+buoys = client.Buoy.list
 puts buoys
 
-# Load a specific buoy
-buoy = client.buoy.load({ "id" => "example_id" })
+# Load a specific buoy (returns the bare record; raises on error)
+buoy = client.Buoy.load({ "id" => "example_id" })
 puts buoy
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("ndbc-buoy-data_sdk")
 local client = sdk.new()
 
 -- List all buoys
-local buoys, err = client:buoy():list()
+local buoys, err = client:Buoy():list()
 print(buoys)
 
 -- Load a specific buoy
-local buoy, err = client:buoy():load({ id = "example_id" })
+local buoy, err = client:Buoy():load({ id = "example_id" })
 print(buoy)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = NdbcBuoyDataSDK.test()
-const result = await client.buoy.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const buoy = await client.Buoy().load({ id: 'test01' })
+// buoy is a bare Buoy populated with mock data
+console.log(buoy)
 ```
 
 ### Python
 
 ```python
 client = NdbcBuoyDataSDK.test()
-result = client.buoy.load({"id": "test01"})
+buoy = client.Buoy().load({"id": "test01"})
+print(buoy)
 ```
 
 ### PHP
 
 ```php
-$client = NdbcBuoyDataSDK::test();
-$result = $client->buoy()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = NdbcBuoyDataSDK::test([
+    "entity" => ["buoy" => ["test01" => ["id" => "test01"]]],
+]);
+$buoy = $client->Buoy()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Buoy(nil).Load(
 ### Ruby
 
 ```ruby
-client = NdbcBuoyDataSDK.test
-result = client.buoy.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = NdbcBuoyDataSDK.test({
+  "entity" => { "buoy" => { "test01" => { "id" => "test01" } } },
+})
+buoy = client.Buoy.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:buoy():load({ id = "test01" })
+local result, err = client:Buoy():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

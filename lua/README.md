@@ -31,26 +31,26 @@ local sdk = require("ndbc-buoy-data_sdk")
 local client = sdk.new()
 ```
 
-### 2. List buoys
+### 2. List buoy records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:buoy():list()
+local buoys, err = client:Buoy():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(buoys) do
+  print(item["id"], item["name"])
 end
 ```
 
 ### 3. Load a buoy
 
 ```lua
-local result, err = client:buoy():load({ id = "example_id" })
+local buoy, err = client:Buoy():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(buoy)
 ```
 
 
@@ -96,8 +96,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:buoy():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Buoy():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -197,17 +197,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local buoy, err = client:Buoy():load({ id = "example_id" })
+    if err then error(err) end
+    -- buoy is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -241,7 +246,7 @@ API path: `/buoys.json`
 
 ### Buoy
 
-Create an instance: `const buoy = client.buoy`
+Create an instance: `local buoy = client:Buoy(nil)`
 
 #### Operations
 
@@ -271,14 +276,14 @@ Create an instance: `const buoy = client.buoy`
 
 #### Example: Load
 
-```ts
-const buoy = await client.buoy.load({ id: 'buoy_id' })
+```lua
+local buoy, err = client:Buoy():load({ id = "buoy_id" })
 ```
 
 #### Example: List
 
-```ts
-const buoys = await client.buoy.list()
+```lua
+local buoys, err = client:Buoy():list()
 ```
 
 
@@ -353,7 +358,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local buoy = client:buoy()
+local buoy = client:Buoy()
 buoy:load({ id = "example_id" })
 
 -- buoy:data_get() now returns the loaded buoy data

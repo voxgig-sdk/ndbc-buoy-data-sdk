@@ -220,25 +220,15 @@ class NdbcBuoyDataSDK:
         }
 
 
-    @property
-    def buoy(self):
-        """Idiomatic facade: client.buoy.list() / client.buoy.load({"id": ...})."""
-        from entity.buoy_entity import BuoyEntity
-        cached = getattr(self, "_buoy", None)
-        if cached is None:
-            cached = BuoyEntity(self, None)
-            self._buoy = cached
-        return cached
-
-    def Buoy(self, data=None):
-        # Deprecated: use client.buoy instead.
+    def Buoy(self, data=None) -> "BuoyEntity":
+        """Entity factory: client.Buoy().list({}) / client.Buoy().load({"id": ...})."""
         from entity.buoy_entity import BuoyEntity
         return BuoyEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "NdbcBuoyDataSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class NdbcBuoyDataSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.buoy_entity import BuoyEntity

@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## BuoyEntity
 
 ```php
-$buoy = $client->buoy();
+$buoy = $client->Buoy();
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ $buoy = $client->buoy();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->buoy()->list([]);
+$results = $client->Buoy()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -122,7 +122,7 @@ $results = $client->buoy()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->buoy()->load(["id" => "buoy_id"]);
+$result = $client->Buoy()->load(["id" => "buoy_id"]);
 ```
 
 ### Common Methods

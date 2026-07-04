@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## BuoyEntity
 
 ```ruby
-buoy = client.buoy
+buoy = client.Buoy
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ buoy = client.buoy
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.buoy.list(nil)
+results = client.Buoy.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -123,7 +123,7 @@ results = client.buoy.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.buoy.load({ "id" => "buoy_id" })
+result = client.Buoy.load({ "id" => "buoy_id" })
 ```
 
 ### Common Methods

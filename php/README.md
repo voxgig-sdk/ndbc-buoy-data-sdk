@@ -29,18 +29,16 @@ require_once 'ndbcbuoydata_sdk.php';
 $client = new NdbcBuoyDataSDK();
 ```
 
-### 2. List buoys
+### 2. List buoy records
 
 ```php
 try {
-    $result = $client->buoy()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Buoy records — iterate directly.
+    $buoys = $client->Buoy()->list();
+    foreach ($buoys as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->buoy()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Buoy record (throws on error).
+    $buoy = $client->Buoy()->load(["id" => "example_id"]);
+    print_r($buoy);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = NdbcBuoyDataSDK::test();
+$client = NdbcBuoyDataSDK::test([
+    "entity" => ["buoy" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->buoy()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$buoy = $client->Buoy()->load(["id" => "test01"]);
+print_r($buoy);
 ```
 
 ### Use a custom fetch function
@@ -252,7 +255,7 @@ API path: `/buoys.json`
 
 ### Buoy
 
-Create an instance: `const buoy = client.buoy`
+Create an instance: `$buoy = $client->Buoy();`
 
 #### Operations
 
@@ -282,14 +285,16 @@ Create an instance: `const buoy = client.buoy`
 
 #### Example: Load
 
-```ts
-const buoy = await client.buoy.load({ id: 'buoy_id' })
+```php
+// load() returns the bare Buoy record (throws on error).
+$buoy = $client->Buoy()->load(["id" => "buoy_id"]);
 ```
 
 #### Example: List
 
-```ts
-const buoys = await client.buoy.list()
+```php
+// list() returns an array of Buoy records (throws on error).
+$buoys = $client->Buoy()->list();
 ```
 
 
@@ -364,7 +369,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$buoy = $client->buoy();
+$buoy = $client->Buoy();
 $buoy->load(["id" => "example_id"]);
 
 // $buoy->dataGet() now returns the loaded buoy data

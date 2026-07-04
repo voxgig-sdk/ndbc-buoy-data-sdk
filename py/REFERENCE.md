@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## BuoyEntity
 
 ```python
-buoy = client.buoy
+buoy = client.Buoy()
 ```
 
 ### Fields
@@ -109,7 +109,9 @@ buoy = client.buoy
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.buoy.list({})
+results = client.Buoy().list({})
+for buoy in results:
+    print(buoy)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -117,7 +119,7 @@ results = client.buoy.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.buoy.load({"id": "buoy_id"})
+result = client.Buoy().load({"id": "buoy_id"})
 ```
 
 ### Common Methods

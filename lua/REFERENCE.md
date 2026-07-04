@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## BuoyEntity
 
 ```lua
-local buoy = client:buoy(nil)
+local buoy = client:Buoy(nil)
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ local buoy = client:buoy(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:buoy():list()
+local results, err = client:Buoy():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -120,7 +120,7 @@ local results, err = client:buoy():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:buoy():load({ id = "buoy_id" })
+local result, err = client:Buoy():load({ id = "buoy_id" })
 ```
 
 ### Common Methods

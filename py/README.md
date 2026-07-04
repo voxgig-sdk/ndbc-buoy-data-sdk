@@ -31,24 +31,28 @@ from ndbcbuoydata_sdk import NdbcBuoyDataSDK
 client = NdbcBuoyDataSDK()
 ```
 
-### 2. List buoys
+### 2. List buoy records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.buoy.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    buoys = client.Buoy().list({})
+    for buoy in buoys:
+        print(buoy)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a buoy
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.buoy.load({"id": "example_id"})
-    print(result)
+    buoy = client.Buoy().load({"id": "example_id"})
+    print(buoy)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = NdbcBuoyDataSDK.test()
 
-result = client.buoy.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+buoy = client.Buoy().load({"id": "test01"})
+# buoy contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -243,7 +248,7 @@ API path: `/buoys.json`
 
 ### Buoy
 
-Create an instance: `const buoy = client.buoy`
+Create an instance: `buoy = client.Buoy()`
 
 #### Operations
 
@@ -273,14 +278,14 @@ Create an instance: `const buoy = client.buoy`
 
 #### Example: Load
 
-```ts
-const buoy = await client.buoy.load({ id: 'buoy_id' })
+```python
+buoy = client.Buoy().load({"id": "buoy_id"})
 ```
 
 #### Example: List
 
-```ts
-const buoys = await client.buoy.list()
+```python
+buoys = client.Buoy().list({})
 ```
 
 
@@ -354,7 +359,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-buoy = client.buoy
+buoy = client.Buoy()
 buoy.load({"id": "example_id"})
 
 # buoy.data_get() now returns the loaded buoy data

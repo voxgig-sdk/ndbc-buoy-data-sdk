@@ -109,7 +109,7 @@ Alias for `NdbcBuoyDataSDK.test()`.
 ## BuoyEntity
 
 ```ts
-const buoy = client.buoy
+const buoy = client.Buoy()
 ```
 
 ### Fields
@@ -138,7 +138,7 @@ const buoy = client.buoy
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.buoy.list()
+const results = await client.Buoy().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -146,7 +146,7 @@ const results = await client.buoy.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.buoy.load({ id: 'buoy_id' })
+const result = await client.Buoy().load({ id: 'buoy_id' })
 ```
 
 ### Common Methods

@@ -204,14 +204,7 @@ class NdbcBuoyDataSDK {
 
 
 
-  _buoy?: BuoyEntity
-
-  // Idiomatic facade: `client.buoy.list()` / `client.buoy.load({ id })`.
-  get buoy(): BuoyEntity {
-    return (this._buoy ??= new BuoyEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.buoy` instead. */
+  // Entity access: `client.Buoy().list()` / `client.Buoy().load({ id })`.
   Buoy(data?: any) {
     const self = this
     return new BuoyEntity(self,data)

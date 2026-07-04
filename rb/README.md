@@ -28,16 +28,14 @@ require_relative "NdbcBuoyData_sdk"
 client = NdbcBuoyDataSDK.new
 ```
 
-### 2. List buoys
+### 2. List buoy records
 
 ```ruby
 begin
-  result = client.buoy.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Buoy records — iterate directly.
+  buoys = client.Buoy.list
+  buoys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.buoy.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Buoy record (raises on error).
+  buoy = client.Buoy.load({ "id" => "example_id" })
+  puts buoy
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = NdbcBuoyDataSDK.test
+client = NdbcBuoyDataSDK.test({
+  "entity" => { "buoy" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.buoy.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+buoy = client.Buoy.load({ "id" => "test01" })
+puts buoy
 ```
 
 ### Use a custom fetch function
@@ -247,7 +250,7 @@ API path: `/buoys.json`
 
 ### Buoy
 
-Create an instance: `const buoy = client.buoy`
+Create an instance: `buoy = client.Buoy`
 
 #### Operations
 
@@ -277,14 +280,16 @@ Create an instance: `const buoy = client.buoy`
 
 #### Example: Load
 
-```ts
-const buoy = await client.buoy.load({ id: 'buoy_id' })
+```ruby
+# load returns the bare Buoy record (raises on error).
+buoy = client.Buoy.load({ "id" => "buoy_id" })
 ```
 
 #### Example: List
 
-```ts
-const buoys = await client.buoy.list()
+```ruby
+# list returns an Array of Buoy records (raises on error).
+buoys = client.Buoy.list
 ```
 
 
@@ -359,7 +364,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-buoy = client.buoy
+buoy = client.Buoy
 buoy.load({ "id" => "example_id" })
 
 # buoy.data_get now returns the loaded buoy data
