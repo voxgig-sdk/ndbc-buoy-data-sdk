@@ -31,7 +31,7 @@ class Buoy
     public ?float $wind_speed = null;
 }
 
-/** Match filter for Buoy#load (any subset of Buoy fields). */
+/** Request payload for Buoy#load. */
 class BuoyLoadMatch
 {
     public ?float $air_temperature = null;
@@ -50,7 +50,7 @@ class BuoyLoadMatch
     public ?float $wind_speed = null;
 }
 
-/** Match filter for Buoy#list (any subset of Buoy fields). */
+/** Request payload for Buoy#list. */
 class BuoyListMatch
 {
     public ?float $air_temperature = null;

@@ -26,8 +26,7 @@ type Buoy struct {
 	WindSpeed *float64 `json:"wind_speed,omitempty"`
 }
 
-// BuoyLoadMatch mirrors the buoy fields as an all-optional match
-// filter (Go analog of Partial<Buoy>).
+// BuoyLoadMatch is the typed request payload for Buoy.LoadTyped.
 type BuoyLoadMatch struct {
 	AirTemperature *float64 `json:"air_temperature,omitempty"`
 	AtmosphericPressure *float64 `json:"atmospheric_pressure,omitempty"`
@@ -45,8 +44,7 @@ type BuoyLoadMatch struct {
 	WindSpeed *float64 `json:"wind_speed,omitempty"`
 }
 
-// BuoyListMatch mirrors the buoy fields as an all-optional match
-// filter (Go analog of Partial<Buoy>).
+// BuoyListMatch is the typed request payload for Buoy.ListTyped.
 type BuoyListMatch struct {
 	AirTemperature *float64 `json:"air_temperature,omitempty"`
 	AtmosphericPressure *float64 `json:"atmospheric_pressure,omitempty"`

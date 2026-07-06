@@ -69,7 +69,7 @@ Buoy = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Buoy#load (any subset of Buoy fields).
+# Request payload for Buoy#load.
 #
 # @!attribute [rw] air_temperature
 #   @return [Float, nil]
@@ -130,7 +130,7 @@ BuoyLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Buoy#list (any subset of Buoy fields).
+# Request payload for Buoy#list.
 #
 # @!attribute [rw] air_temperature
 #   @return [Float, nil]

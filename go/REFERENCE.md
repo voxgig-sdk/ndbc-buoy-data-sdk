@@ -97,20 +97,20 @@ buoy := client.Buoy(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | ``$NUMBER`` | No |  |
-| `atmospheric_pressure` | ``$NUMBER`` | No |  |
-| `average_wave_period` | ``$NUMBER`` | No |  |
-| `dominant_wave_period` | ``$NUMBER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `station_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `water_temperature` | ``$NUMBER`` | No |  |
-| `wave_direction` | ``$NUMBER`` | No |  |
-| `wave_height` | ``$NUMBER`` | No |  |
-| `wind_direction` | ``$NUMBER`` | No |  |
-| `wind_speed` | ``$NUMBER`` | No |  |
+| `air_temperature` | `float64` | No |  |
+| `atmospheric_pressure` | `float64` | No |  |
+| `average_wave_period` | `float64` | No |  |
+| `dominant_wave_period` | `float64` | No |  |
+| `latitude` | `float64` | No |  |
+| `longitude` | `float64` | No |  |
+| `name` | `string` | No |  |
+| `station_id` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `water_temperature` | `float64` | No |  |
+| `wave_direction` | `float64` | No |  |
+| `wave_height` | `float64` | No |  |
+| `wind_direction` | `float64` | No |  |
+| `wind_speed` | `float64` | No |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ results, err := client.Buoy(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Buoy(nil).Load(map[string]any{"id": "buoy_id"}, nil)
+result, err := client.Buoy(nil).Load(nil, nil)
 ```
 
 ### Common Methods

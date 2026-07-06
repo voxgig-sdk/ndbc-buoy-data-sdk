@@ -8,7 +8,7 @@ Complete API reference for the NdbcBuoyData PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/ndbc-buoy-data_sdk.php';
+require_once __DIR__ . '/ndbcbuoydata_sdk.php';
 
 $client = new NdbcBuoyDataSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = NdbcBuoyDataSDK::test();
 
 Create a new `BuoyEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): NdbcBuoyDataUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,29 +92,29 @@ $buoy = $client->Buoy();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | ``$NUMBER`` | No |  |
-| `atmospheric_pressure` | ``$NUMBER`` | No |  |
-| `average_wave_period` | ``$NUMBER`` | No |  |
-| `dominant_wave_period` | ``$NUMBER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `station_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `water_temperature` | ``$NUMBER`` | No |  |
-| `wave_direction` | ``$NUMBER`` | No |  |
-| `wave_height` | ``$NUMBER`` | No |  |
-| `wind_direction` | ``$NUMBER`` | No |  |
-| `wind_speed` | ``$NUMBER`` | No |  |
+| `air_temperature` | `float` | No |  |
+| `atmospheric_pressure` | `float` | No |  |
+| `average_wave_period` | `float` | No |  |
+| `dominant_wave_period` | `float` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `string` | No |  |
+| `station_id` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `water_temperature` | `float` | No |  |
+| `wave_direction` | `float` | No |  |
+| `wave_height` | `float` | No |  |
+| `wind_direction` | `float` | No |  |
+| `wind_speed` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Buoy()->list([]);
+$results = $client->Buoy()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -122,24 +122,24 @@ $results = $client->Buoy()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Buoy()->load(["id" => "buoy_id"]);
+$result = $client->Buoy()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -148,7 +148,7 @@ Set the entity match criteria.
 Create a new `BuoyEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

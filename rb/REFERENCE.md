@@ -8,7 +8,7 @@ Complete API reference for the NdbcBuoyData Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ndbc-buoy-data_sdk'
+require_relative 'NdbcBuoyData_sdk'
 
 client = NdbcBuoyDataSDK.new(options)
 ```
@@ -93,29 +93,29 @@ buoy = client.Buoy
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | ``$NUMBER`` | No |  |
-| `atmospheric_pressure` | ``$NUMBER`` | No |  |
-| `average_wave_period` | ``$NUMBER`` | No |  |
-| `dominant_wave_period` | ``$NUMBER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `station_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `water_temperature` | ``$NUMBER`` | No |  |
-| `wave_direction` | ``$NUMBER`` | No |  |
-| `wave_height` | ``$NUMBER`` | No |  |
-| `wind_direction` | ``$NUMBER`` | No |  |
-| `wind_speed` | ``$NUMBER`` | No |  |
+| `air_temperature` | `Float` | No |  |
+| `atmospheric_pressure` | `Float` | No |  |
+| `average_wave_period` | `Float` | No |  |
+| `dominant_wave_period` | `Float` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `station_id` | `String` | No |  |
+| `timestamp` | `String` | No |  |
+| `water_temperature` | `Float` | No |  |
+| `wave_direction` | `Float` | No |  |
+| `wave_height` | `Float` | No |  |
+| `wind_direction` | `Float` | No |  |
+| `wind_speed` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Buoy.list(nil)
+results = client.Buoy.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -123,7 +123,7 @@ results = client.Buoy.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Buoy.load({ "id" => "buoy_id" })
+result = client.Buoy.load()
 ```
 
 ### Common Methods

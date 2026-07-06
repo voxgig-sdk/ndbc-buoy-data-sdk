@@ -116,20 +116,20 @@ const buoy = client.Buoy()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | ``$NUMBER`` | No |  |
-| `atmospheric_pressure` | ``$NUMBER`` | No |  |
-| `average_wave_period` | ``$NUMBER`` | No |  |
-| `dominant_wave_period` | ``$NUMBER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `station_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `water_temperature` | ``$NUMBER`` | No |  |
-| `wave_direction` | ``$NUMBER`` | No |  |
-| `wave_height` | ``$NUMBER`` | No |  |
-| `wind_direction` | ``$NUMBER`` | No |  |
-| `wind_speed` | ``$NUMBER`` | No |  |
+| `air_temperature` | `number` | No |  |
+| `atmospheric_pressure` | `number` | No |  |
+| `average_wave_period` | `number` | No |  |
+| `dominant_wave_period` | `number` | No |  |
+| `latitude` | `number` | No |  |
+| `longitude` | `number` | No |  |
+| `name` | `string` | No |  |
+| `station_id` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `water_temperature` | `number` | No |  |
+| `wave_direction` | `number` | No |  |
+| `wave_height` | `number` | No |  |
+| `wind_direction` | `number` | No |  |
+| `wind_speed` | `number` | No |  |
 
 ### Operations
 
@@ -146,7 +146,7 @@ const results = await client.Buoy().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Buoy().load({ id: 'buoy_id' })
+const result = await client.Buoy().load()
 ```
 
 ### Common Methods

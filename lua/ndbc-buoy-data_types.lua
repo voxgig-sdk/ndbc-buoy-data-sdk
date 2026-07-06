@@ -23,8 +23,36 @@
 ---@field wind_speed? number
 
 ---@class BuoyLoadMatch
+---@field air_temperature? number
+---@field atmospheric_pressure? number
+---@field average_wave_period? number
+---@field dominant_wave_period? number
+---@field latitude? number
+---@field longitude? number
+---@field name? string
+---@field station_id? string
+---@field timestamp? string
+---@field water_temperature? number
+---@field wave_direction? number
+---@field wave_height? number
+---@field wind_direction? number
+---@field wind_speed? number
 
 ---@class BuoyListMatch
+---@field air_temperature? number
+---@field atmospheric_pressure? number
+---@field average_wave_period? number
+---@field dominant_wave_period? number
+---@field latitude? number
+---@field longitude? number
+---@field name? string
+---@field station_id? string
+---@field timestamp? string
+---@field water_temperature? number
+---@field wave_direction? number
+---@field wave_height? number
+---@field wind_direction? number
+---@field wind_speed? number
 
 local M = {}
 

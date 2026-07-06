@@ -221,7 +221,7 @@ class NdbcBuoyDataSDK:
 
 
     def Buoy(self, data=None) -> "BuoyEntity":
-        """Entity factory: client.Buoy().list({}) / client.Buoy().load({"id": ...})."""
+        """Entity factory: client.Buoy().list() / client.Buoy().load({"id": ...})."""
         from entity.buoy_entity import BuoyEntity
         return BuoyEntity(self, data)
 

@@ -8,7 +8,7 @@ Complete API reference for the NdbcBuoyData Python SDK.
 ### Constructor
 
 ```python
-from ndbc-buoy-data_sdk import NdbcBuoyDataSDK
+from ndbcbuoydata_sdk import NdbcBuoyDataSDK
 
 client = NdbcBuoyDataSDK(options)
 ```
@@ -87,29 +87,29 @@ buoy = client.Buoy()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | ``$NUMBER`` | No |  |
-| `atmospheric_pressure` | ``$NUMBER`` | No |  |
-| `average_wave_period` | ``$NUMBER`` | No |  |
-| `dominant_wave_period` | ``$NUMBER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `station_id` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `water_temperature` | ``$NUMBER`` | No |  |
-| `wave_direction` | ``$NUMBER`` | No |  |
-| `wave_height` | ``$NUMBER`` | No |  |
-| `wind_direction` | ``$NUMBER`` | No |  |
-| `wind_speed` | ``$NUMBER`` | No |  |
+| `air_temperature` | `float` | No |  |
+| `atmospheric_pressure` | `float` | No |  |
+| `average_wave_period` | `float` | No |  |
+| `dominant_wave_period` | `float` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `str` | No |  |
+| `station_id` | `str` | No |  |
+| `timestamp` | `str` | No |  |
+| `water_temperature` | `float` | No |  |
+| `wave_direction` | `float` | No |  |
+| `wave_height` | `float` | No |  |
+| `wind_direction` | `float` | No |  |
+| `wind_speed` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Buoy().list({})
+results = client.Buoy().list()
 for buoy in results:
     print(buoy)
 ```
@@ -119,7 +119,7 @@ for buoy in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Buoy().load({"id": "buoy_id"})
+result = client.Buoy().load()
 ```
 
 ### Common Methods
