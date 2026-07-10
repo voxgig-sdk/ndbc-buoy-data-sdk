@@ -15,11 +15,11 @@ main: {
           url: "https://surftruths.com/api"
         }
       ]
+      summary: "Access real-time buoy readings and information from the National Data Buoy Center (NDBC) with this API."
       title: "NDBC Buoy Data API"
       version: "0.1.0"
+      website: "https://surftruths.com/api.html"
       "x-source": "https://www.ndbc.noaa.gov/"
       "x-status": "Under Development"
     }
   }
-}
-

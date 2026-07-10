@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 buoy := client.Buoy(nil)
+fmt.Println(buoy.GetName()) // "buoy"
 ```
 
 ### Fields
@@ -120,6 +121,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Buoy(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -128,6 +133,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Buoy(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

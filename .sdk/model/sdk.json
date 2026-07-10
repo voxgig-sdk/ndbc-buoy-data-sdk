@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -336,14 +333,17 @@
           "url": "https://surftruths.com/api.html"
         },
         "description": "Access real-time buoy readings and information from the National Data Buoy Center (NDBC) with this API. Currently under development, it provides essential data for ocean and weather monitoring enthusiasts and professionals. Supports various content types, including JSON, XML, CSV, and HTML. Ideal for integrating buoy data into your applications or research projects.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://surftruths.com/api"
           }
         ],
+        "summary": "Access real-time buoy readings and information from the National Data Buoy Center (NDBC) with this API.",
         "title": "NDBC Buoy Data API",
         "version": "0.1.0",
+        "website": "https://surftruths.com/api.html",
         "x-source": "https://www.ndbc.noaa.gov/",
         "x-status": "Under Development"
       },
@@ -398,6 +398,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -448,6 +451,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
