@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- NdbcBuoyData SDK exists test
 
 local sdk = require("ndbc-buoy-data_sdk")
 
