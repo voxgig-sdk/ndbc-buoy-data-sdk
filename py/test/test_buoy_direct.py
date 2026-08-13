@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ndbcbuoydata_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ndbcbuoydata_sdk import NdbcBuoyDataSDK
-from core import helpers
+from ndbcbuoydata_sdk.core import helpers
 from test import runner
 
 
@@ -95,11 +95,11 @@ def _buoy_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "NDBCBUOYDATA_TEST_BUOY_ENTID": {},
-        "NDBCBUOYDATA_TEST_LIVE": "FALSE",
+        "NDBC_BUOY_DATA_TEST_BUOY_ENTID": {},
+        "NDBC_BUOY_DATA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("NDBCBUOYDATA_TEST_LIVE") == "TRUE"
+    live = env.get("NDBC_BUOY_DATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

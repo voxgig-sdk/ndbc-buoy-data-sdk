@@ -133,6 +133,7 @@ module NdbcBuoyDataConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/buoys.json",
                   "parts" => [
@@ -155,6 +156,7 @@ module NdbcBuoyDataConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/buoys.csv",
                   "parts" => [
@@ -170,6 +172,7 @@ module NdbcBuoyDataConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/buoys.html",
                   "parts" => [
@@ -185,6 +188,7 @@ module NdbcBuoyDataConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/buoys.xml",
                   "parts" => [

@@ -23,8 +23,8 @@ module NdbcBuoyDataTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("NDBCBUOYDATA_TEST_LIVE")
-    override = getenv("NDBCBUOYDATA_TEST_OVERRIDE")
+    live = getenv("NDBC_BUOY_DATA_TEST_LIVE")
+    override = getenv("NDBC_BUOY_DATA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module NdbcBuoyDataTestRunner
       end
     end
 
-    explain = getenv("NDBCBUOYDATA_TEST_EXPLAIN")
-    m["NDBCBUOYDATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("NDBC_BUOY_DATA_TEST_EXPLAIN")
+    m["NDBC_BUOY_DATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

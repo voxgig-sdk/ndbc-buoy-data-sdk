@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import NdbcBuoyDataControl
-from core.error import NdbcBuoyDataError
-from core.result import NdbcBuoyDataResult
-from core.spec import NdbcBuoyDataSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import NdbcBuoyDataControl
+from projectname_sdk.core.error import NdbcBuoyDataError
+from projectname_sdk.core.result import NdbcBuoyDataResult
+from projectname_sdk.core.spec import NdbcBuoyDataSpec
 
 
 # True when this SDK was generated with the named feature.

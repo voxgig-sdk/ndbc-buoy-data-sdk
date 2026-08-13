@@ -43,8 +43,8 @@ class NdbcBuoyDataTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('NDBCBUOYDATA_TEST_LIVE');
-        $override = self::getenv('NDBCBUOYDATA_TEST_OVERRIDE');
+        $live = self::getenv('NDBC_BUOY_DATA_TEST_LIVE');
+        $override = self::getenv('NDBC_BUOY_DATA_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class NdbcBuoyDataTestRunner
             }
         }
 
-        $explain = self::getenv('NDBCBUOYDATA_TEST_EXPLAIN');
+        $explain = self::getenv('NDBC_BUOY_DATA_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['NDBCBUOYDATA_TEST_EXPLAIN'] = $explain;
+            $m['NDBC_BUOY_DATA_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

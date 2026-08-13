@@ -19,11 +19,15 @@ import {
 describe('BuoyDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when NDBCBUOYDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('NDBCBUOYDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when NDBC_BUOY_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('NDBC_BUOY_DATA_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new NdbcBuoyDataSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -133,17 +137,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'NDBCBUOYDATA_TEST_BUOY_ENTID': {},
-    'NDBCBUOYDATA_TEST_LIVE': 'FALSE',
+    'NDBC_BUOY_DATA_TEST_BUOY_ENTID': {},
+    'NDBC_BUOY_DATA_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.NDBCBUOYDATA_TEST_LIVE
+  const live = 'TRUE' === env.NDBC_BUOY_DATA_TEST_LIVE
 
   if (live) {
     const client = new NdbcBuoyDataSDK({
     })
 
-    let idmap: any = env['NDBCBUOYDATA_TEST_BUOY_ENTID']
+    let idmap: any = env['NDBC_BUOY_DATA_TEST_BUOY_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

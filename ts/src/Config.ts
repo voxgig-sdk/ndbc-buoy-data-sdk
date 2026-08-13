@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'NdbcBuoyData',
   }
 
 
@@ -162,6 +162,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/buoys.json",
               "parts": [
@@ -184,6 +185,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/buoys.csv",
               "parts": [
@@ -199,6 +201,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/buoys.html",
               "parts": [
@@ -214,6 +217,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/buoys.xml",
               "parts": [

@@ -104,11 +104,11 @@ def buoy_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "NDBCBUOYDATA_TEST_BUOY_ENTID" => {},
-    "NDBCBUOYDATA_TEST_LIVE" => "FALSE",
+    "NDBC_BUOY_DATA_TEST_BUOY_ENTID" => {},
+    "NDBC_BUOY_DATA_TEST_LIVE" => "FALSE",
   })
 
-  live = env["NDBCBUOYDATA_TEST_LIVE"] == "TRUE"
+  live = env["NDBC_BUOY_DATA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# NdbcBuoyData SDK exists test
 
 import pytest
 from ndbcbuoydata_sdk import NdbcBuoyDataSDK

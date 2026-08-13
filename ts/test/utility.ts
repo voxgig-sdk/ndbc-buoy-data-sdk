@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.NDBCBUOYDATA_TEST_LIVE ||
-    'TRUE' === process.env.NDBCBUOYDATA_TEST_OVERRIDE
+    'TRUE' === process.env.NDBC_BUOY_DATA_TEST_LIVE ||
+    'TRUE' === process.env.NDBC_BUOY_DATA_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.NDBCBUOYDATA_TEST_EXPLAIN = process.env.NDBCBUOYDATA_TEST_EXPLAIN || m.NDBCBUOYDATA_TEST_EXPLAIN
+  m.NDBC_BUOY_DATA_TEST_EXPLAIN = process.env.NDBC_BUOY_DATA_TEST_EXPLAIN || m.NDBC_BUOY_DATA_TEST_EXPLAIN
 
   return m
 }

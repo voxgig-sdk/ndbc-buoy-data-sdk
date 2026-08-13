@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = NdbcBuoyDataSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = NdbcBuoyDataSDK.test({
+  entity: {
+    buoy: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const buoys = await client.Buoy().list()
-// buoys is an array of bare Buoy records populated with mock data
+// buoys is an array of Buoy entities, populated with mock data
+// — call buoys[0].data() for the record itself
 console.log(buoys)
 ```
 
@@ -110,7 +119,7 @@ import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data'
 
 const client = new NdbcBuoyDataSDK()
 
-// List all buoys (returns Buoy[])
+// List all buoys (returns BuoyEntity[] — .data() for the record)
 const buoys = await client.Buoy().list()
 for (const buoy of buoys) {
   console.log(buoy)
@@ -191,7 +200,7 @@ $client = new NdbcBuoyDataSDK();
 $buoys = $client->Buoy()->list();
 print_r($buoys);
 
-// Load a specific buoy (returns the bare record; throws on error)
+// Load a specific buoy (returns the ENTITY; call data_get() for the record; throws on error)
 $buoy = $client->Buoy()->load();
 print_r($buoy);
 ```
@@ -222,7 +231,7 @@ client = NdbcBuoyDataSDK.new
 buoys = client.Buoy.list
 puts buoys
 
-# Load a specific buoy (returns the bare record; raises on error)
+# Load a specific buoy (returns the ENTITY; call data_get for the record)
 buoy = client.Buoy.load()
 puts buoy
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://surftruths.com/api.html](https://surftruths.com/api.html)
 

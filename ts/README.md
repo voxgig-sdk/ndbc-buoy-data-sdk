@@ -35,7 +35,9 @@ const client = new NdbcBuoyDataSDK()
 
 ### 2. List buoy records
 
-`list()` resolves to an array of Buoy objects — iterate it directly:
+`list()` resolves to an array of Buoy ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const buoys = await client.Buoy().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = NdbcBuoyDataSDK.test()
 
 const buoy = await client.Buoy().list()
-// buoy is a bare entity populated with mock response data
+// buoy is the entity, populated with mock response data
+// — call buoy.data() for the record itself
 console.log(buoy)
 ```
 

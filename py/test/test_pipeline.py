@@ -16,11 +16,11 @@
 import pytest
 
 from ndbcbuoydata_sdk import NdbcBuoyDataSDK
-from core.error import NdbcBuoyDataError
-from core.result import NdbcBuoyDataResult
-from core.response import NdbcBuoyDataResponse
-from core.spec import NdbcBuoyDataSpec
-from feature.base_feature import NdbcBuoyDataBaseFeature
+from ndbcbuoydata_sdk.core.error import NdbcBuoyDataError
+from ndbcbuoydata_sdk.core.result import NdbcBuoyDataResult
+from ndbcbuoydata_sdk.core.response import NdbcBuoyDataResponse
+from ndbcbuoydata_sdk.core.spec import NdbcBuoyDataSpec
+from ndbcbuoydata_sdk.feature.base_feature import NdbcBuoyDataBaseFeature
 
 
 def _client():

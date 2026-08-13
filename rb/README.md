@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Buoy record (raises on error).
+  # load returns the ENTITY — call data_get for the Buoy record (raises on error).
   buoy = client.Buoy.load()
   puts buoy
 rescue => err
@@ -131,7 +131,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = NdbcBuoyDataSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 buoy = client.Buoy.list()
 puts buoy
 ```
@@ -306,7 +307,7 @@ Create an instance: `buoy = client.Buoy`
 #### Example: Load
 
 ```ruby
-# load returns the bare Buoy record (raises on error).
+# load returns the ENTITY — call data_get for the Buoy record (raises on error).
 buoy = client.Buoy.load()
 ```
 

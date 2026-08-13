@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ NdbcBuoyDataUtility.registrar = ->(u) {
   u.prepare_params = NdbcBuoyDataUtilities::PrepareParams
   u.prepare_path = NdbcBuoyDataUtilities::PreparePath
   u.prepare_query = NdbcBuoyDataUtilities::PrepareQuery
+  u.graphql_body = NdbcBuoyDataUtilities::GraphqlBody
+  u.graphql_errors = NdbcBuoyDataUtilities::GraphqlErrors
   u.result_basic = NdbcBuoyDataUtilities::ResultBasic
   u.result_body = NdbcBuoyDataUtilities::ResultBody
   u.result_headers = NdbcBuoyDataUtilities::ResultHeaders

@@ -26,8 +26,8 @@ import {
 describe('BuoyEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when NDBCBUOYDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('NDBCBUOYDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when NDBC_BUOY_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('NDBC_BUOY_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = NdbcBuoyDataSDK.test()
@@ -63,12 +63,12 @@ describe('BuoyEntity', async () => {
     const buoy_ref01_ent = client.Buoy()
     const buoy_ref01_match: any = {}
 
-    const buoy_ref01_list = await buoy_ref01_ent.list(buoy_ref01_match)
+    const buoy_ref01_list = (await buoy_ref01_ent.list(buoy_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const buoy_ref01_match_dt0: any = {}
-    const buoy_ref01_data_dt0 = await buoy_ref01_ent.load(buoy_ref01_match_dt0)
+    const buoy_ref01_data_dt0 = (await buoy_ref01_ent.load(buoy_ref01_match_dt0)).data()
     assert(null != buoy_ref01_data_dt0)
 
 
