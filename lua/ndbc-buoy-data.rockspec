@@ -23,6 +23,7 @@ build = {
   modules = {
     ["ndbc-buoy-data_sdk"] = "ndbc-buoy-data_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

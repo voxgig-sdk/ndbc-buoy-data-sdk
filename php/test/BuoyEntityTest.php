@@ -40,7 +40,7 @@ class BuoyEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = NdbcBuoyDataConfig::make_config();
+        $cfg = NdbcBuoyDataConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = NdbcBuoyDataSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

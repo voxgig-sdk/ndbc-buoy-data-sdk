@@ -40,7 +40,7 @@ class NdbcBuoyDataSDK
         $utility = new NdbcBuoyDataUtility();
         $this->_utility = $utility;
 
-        $config = NdbcBuoyDataConfig::make_config();
+        $config = NdbcBuoyDataConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

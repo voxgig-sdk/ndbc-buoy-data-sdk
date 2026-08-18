@@ -1,5 +1,8 @@
 -- NdbcBuoyData SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,102 +28,60 @@ local function make_config()
       ["buoy"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "air_temperature",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "atmospheric_pressure",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "average_wave_period",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "dominant_wave_period",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "latitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "longitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "name",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "station_id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "timestamp",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "water_temperature",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 9,
           },
           {
-            ["active"] = true,
             ["name"] = "wave_direction",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 10,
           },
           {
-            ["active"] = true,
             ["name"] = "wave_height",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 11,
           },
           {
-            ["active"] = true,
             ["name"] = "wind_direction",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 12,
           },
           {
-            ["active"] = true,
             ["name"] = "wind_speed",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 13,
           },
         },
         ["name"] = "buoy",
@@ -130,7 +91,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -143,17 +103,14 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
           ["load"] = {
             ["input"] = "data",
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -166,10 +123,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -182,10 +137,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 1,
               },
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -198,10 +151,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 2,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

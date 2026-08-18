@@ -28,7 +28,7 @@ class NdbcBuoyDataSDK
     utility = NdbcBuoyDataUtility.new
     @_utility = utility
 
-    config = NdbcBuoyDataConfig.make_config
+    config = NdbcBuoyDataConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

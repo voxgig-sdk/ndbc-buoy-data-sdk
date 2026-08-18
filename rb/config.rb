@@ -1,6 +1,20 @@
 # NdbcBuoyData SDK configuration
 
 module NdbcBuoyDataConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,102 +40,60 @@ module NdbcBuoyDataConfig
         "buoy" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "air_temperature",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "atmospheric_pressure",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "average_wave_period",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "dominant_wave_period",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "latitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "longitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "station_id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "timestamp",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "water_temperature",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "wave_direction",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "wave_height",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "wind_direction",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "wind_speed",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 13,
             },
           ],
           "name" => "buoy",
@@ -131,7 +103,6 @@ module NdbcBuoyDataConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -144,17 +115,14 @@ module NdbcBuoyDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -167,10 +135,8 @@ module NdbcBuoyDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -183,10 +149,8 @@ module NdbcBuoyDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 1,
                 },
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -199,10 +163,8 @@ module NdbcBuoyDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 2,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
