@@ -250,20 +250,20 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `air_temperature` |  |
-| `atmospheric_pressure` |  |
-| `average_wave_period` |  |
-| `dominant_wave_period` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `station_id` |  |
-| `timestamp` |  |
-| `water_temperature` |  |
-| `wave_direction` |  |
-| `wave_height` |  |
-| `wind_direction` |  |
-| `wind_speed` |  |
+| `air_temperature` | Air temperature in Celsius |
+| `atmospheric_pressure` | Atmospheric pressure in hPa |
+| `average_wave_period` | Average wave period in seconds |
+| `dominant_wave_period` | Dominant wave period in seconds |
+| `latitude` | Latitude coordinate of the buoy |
+| `longitude` | Longitude coordinate of the buoy |
+| `name` | Name of the buoy station |
+| `station_id` | Unique identifier for the buoy station |
+| `timestamp` | Timestamp of the reading |
+| `water_temperature` | Water temperature in Celsius |
+| `wave_direction` | Wave direction in degrees |
+| `wave_height` | Significant wave height in meters |
+| `wind_direction` | Wind direction in degrees |
+| `wind_speed` | Wind speed in meters per second |
 
 Operations: List, Load.
 
@@ -289,20 +289,20 @@ Create an instance: `buoy = client.Buoy`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_temperature` | `Float` |  |
-| `atmospheric_pressure` | `Float` |  |
-| `average_wave_period` | `Float` |  |
-| `dominant_wave_period` | `Float` |  |
-| `latitude` | `Float` |  |
-| `longitude` | `Float` |  |
-| `name` | `String` |  |
-| `station_id` | `String` |  |
-| `timestamp` | `String` |  |
-| `water_temperature` | `Float` |  |
-| `wave_direction` | `Float` |  |
-| `wave_height` | `Float` |  |
-| `wind_direction` | `Float` |  |
-| `wind_speed` | `Float` |  |
+| `air_temperature` | `Float` | Air temperature in Celsius |
+| `atmospheric_pressure` | `Float` | Atmospheric pressure in hPa |
+| `average_wave_period` | `Float` | Average wave period in seconds |
+| `dominant_wave_period` | `Float` | Dominant wave period in seconds |
+| `latitude` | `Float` | Latitude coordinate of the buoy |
+| `longitude` | `Float` | Longitude coordinate of the buoy |
+| `name` | `String` | Name of the buoy station |
+| `station_id` | `String` | Unique identifier for the buoy station |
+| `timestamp` | `String` | Timestamp of the reading |
+| `water_temperature` | `Float` | Water temperature in Celsius |
+| `wave_direction` | `Float` | Wave direction in degrees |
+| `wave_height` | `Float` | Significant wave height in meters |
+| `wind_direction` | `Float` | Wind direction in degrees |
+| `wind_speed` | `Float` | Wind speed in meters per second |
 
 #### Example: Load
 

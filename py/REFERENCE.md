@@ -87,20 +87,20 @@ buoy = client.Buoy()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | `float` | No |  |
-| `atmospheric_pressure` | `float` | No |  |
-| `average_wave_period` | `float` | No |  |
-| `dominant_wave_period` | `float` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | No |  |
-| `station_id` | `str` | No |  |
-| `timestamp` | `str` | No |  |
-| `water_temperature` | `float` | No |  |
-| `wave_direction` | `float` | No |  |
-| `wave_height` | `float` | No |  |
-| `wind_direction` | `float` | No |  |
-| `wind_speed` | `float` | No |  |
+| `air_temperature` | `float` | No | Air temperature in Celsius |
+| `atmospheric_pressure` | `float` | No | Atmospheric pressure in hPa |
+| `average_wave_period` | `float` | No | Average wave period in seconds |
+| `dominant_wave_period` | `float` | No | Dominant wave period in seconds |
+| `latitude` | `float` | No | Latitude coordinate of the buoy |
+| `longitude` | `float` | No | Longitude coordinate of the buoy |
+| `name` | `str` | No | Name of the buoy station |
+| `station_id` | `str` | No | Unique identifier for the buoy station |
+| `timestamp` | `str` | No | Timestamp of the reading |
+| `water_temperature` | `float` | No | Water temperature in Celsius |
+| `wave_direction` | `float` | No | Wave direction in degrees |
+| `wave_height` | `float` | No | Significant wave height in meters |
+| `wind_direction` | `float` | No | Wind direction in degrees |
+| `wind_speed` | `float` | No | Wind speed in meters per second |
 
 ### Operations
 

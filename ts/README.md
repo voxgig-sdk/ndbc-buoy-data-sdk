@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -302,20 +302,20 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `air_temperature` |  |
-| `atmospheric_pressure` |  |
-| `average_wave_period` |  |
-| `dominant_wave_period` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `station_id` |  |
-| `timestamp` |  |
-| `water_temperature` |  |
-| `wave_direction` |  |
-| `wave_height` |  |
-| `wind_direction` |  |
-| `wind_speed` |  |
+| `air_temperature` | Air temperature in Celsius |
+| `atmospheric_pressure` | Atmospheric pressure in hPa |
+| `average_wave_period` | Average wave period in seconds |
+| `dominant_wave_period` | Dominant wave period in seconds |
+| `latitude` | Latitude coordinate of the buoy |
+| `longitude` | Longitude coordinate of the buoy |
+| `name` | Name of the buoy station |
+| `station_id` | Unique identifier for the buoy station |
+| `timestamp` | Timestamp of the reading |
+| `water_temperature` | Water temperature in Celsius |
+| `wave_direction` | Wave direction in degrees |
+| `wave_height` | Significant wave height in meters |
+| `wind_direction` | Wind direction in degrees |
+| `wind_speed` | Wind speed in meters per second |
 
 Operations: list, load.
 
@@ -341,20 +341,20 @@ Create an instance: `const buoy = client.Buoy()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_temperature` | `number` |  |
-| `atmospheric_pressure` | `number` |  |
-| `average_wave_period` | `number` |  |
-| `dominant_wave_period` | `number` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `name` | `string` |  |
-| `station_id` | `string` |  |
-| `timestamp` | `string` |  |
-| `water_temperature` | `number` |  |
-| `wave_direction` | `number` |  |
-| `wave_height` | `number` |  |
-| `wind_direction` | `number` |  |
-| `wind_speed` | `number` |  |
+| `air_temperature` | `number` | Air temperature in Celsius |
+| `atmospheric_pressure` | `number` | Atmospheric pressure in hPa |
+| `average_wave_period` | `number` | Average wave period in seconds |
+| `dominant_wave_period` | `number` | Dominant wave period in seconds |
+| `latitude` | `number` | Latitude coordinate of the buoy |
+| `longitude` | `number` | Longitude coordinate of the buoy |
+| `name` | `string` | Name of the buoy station |
+| `station_id` | `string` | Unique identifier for the buoy station |
+| `timestamp` | `string` | Timestamp of the reading |
+| `water_temperature` | `number` | Water temperature in Celsius |
+| `wave_direction` | `number` | Wave direction in degrees |
+| `wave_height` | `number` | Significant wave height in meters |
+| `wind_direction` | `number` | Wind direction in degrees |
+| `wind_speed` | `number` | Wind speed in meters per second |
 
 #### Example: Load
 

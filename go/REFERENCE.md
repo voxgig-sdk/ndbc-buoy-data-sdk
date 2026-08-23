@@ -98,20 +98,20 @@ fmt.Println(buoy.GetName()) // "buoy"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | `float64` | No |  |
-| `atmospheric_pressure` | `float64` | No |  |
-| `average_wave_period` | `float64` | No |  |
-| `dominant_wave_period` | `float64` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | No |  |
-| `station_id` | `string` | No |  |
-| `timestamp` | `string` | No |  |
-| `water_temperature` | `float64` | No |  |
-| `wave_direction` | `float64` | No |  |
-| `wave_height` | `float64` | No |  |
-| `wind_direction` | `float64` | No |  |
-| `wind_speed` | `float64` | No |  |
+| `air_temperature` | `float64` | No | Air temperature in Celsius |
+| `atmospheric_pressure` | `float64` | No | Atmospheric pressure in hPa |
+| `average_wave_period` | `float64` | No | Average wave period in seconds |
+| `dominant_wave_period` | `float64` | No | Dominant wave period in seconds |
+| `latitude` | `float64` | No | Latitude coordinate of the buoy |
+| `longitude` | `float64` | No | Longitude coordinate of the buoy |
+| `name` | `string` | No | Name of the buoy station |
+| `station_id` | `string` | No | Unique identifier for the buoy station |
+| `timestamp` | `string` | No | Timestamp of the reading |
+| `water_temperature` | `float64` | No | Water temperature in Celsius |
+| `wave_direction` | `float64` | No | Wave direction in degrees |
+| `wave_height` | `float64` | No | Significant wave height in meters |
+| `wind_direction` | `float64` | No | Wind direction in degrees |
+| `wind_speed` | `float64` | No | Wind speed in meters per second |
 
 ### Operations
 

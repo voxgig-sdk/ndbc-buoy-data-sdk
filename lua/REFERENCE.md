@@ -90,20 +90,20 @@ local buoy = client:Buoy(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_temperature` | `number` | No |  |
-| `atmospheric_pressure` | `number` | No |  |
-| `average_wave_period` | `number` | No |  |
-| `dominant_wave_period` | `number` | No |  |
-| `latitude` | `number` | No |  |
-| `longitude` | `number` | No |  |
-| `name` | `string` | No |  |
-| `station_id` | `string` | No |  |
-| `timestamp` | `string` | No |  |
-| `water_temperature` | `number` | No |  |
-| `wave_direction` | `number` | No |  |
-| `wave_height` | `number` | No |  |
-| `wind_direction` | `number` | No |  |
-| `wind_speed` | `number` | No |  |
+| `air_temperature` | `number` | No | Air temperature in Celsius |
+| `atmospheric_pressure` | `number` | No | Atmospheric pressure in hPa |
+| `average_wave_period` | `number` | No | Average wave period in seconds |
+| `dominant_wave_period` | `number` | No | Dominant wave period in seconds |
+| `latitude` | `number` | No | Latitude coordinate of the buoy |
+| `longitude` | `number` | No | Longitude coordinate of the buoy |
+| `name` | `string` | No | Name of the buoy station |
+| `station_id` | `string` | No | Unique identifier for the buoy station |
+| `timestamp` | `string` | No | Timestamp of the reading |
+| `water_temperature` | `number` | No | Water temperature in Celsius |
+| `wave_direction` | `number` | No | Wave direction in degrees |
+| `wave_height` | `number` | No | Significant wave height in meters |
+| `wind_direction` | `number` | No | Wind direction in degrees |
+| `wind_speed` | `number` | No | Wind speed in meters per second |
 
 ### Operations
 

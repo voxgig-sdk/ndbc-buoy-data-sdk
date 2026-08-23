@@ -8,71 +8,85 @@ main: kit: entity: buoy: {
     {
       name: "air_temperature"
       req: false
+      short: "Air temperature in Celsius"
       type: "`$NUMBER`"
     }
     {
       name: "atmospheric_pressure"
       req: false
+      short: "Atmospheric pressure in hPa"
       type: "`$NUMBER`"
     }
     {
       name: "average_wave_period"
       req: false
+      short: "Average wave period in seconds"
       type: "`$NUMBER`"
     }
     {
       name: "dominant_wave_period"
       req: false
+      short: "Dominant wave period in seconds"
       type: "`$NUMBER`"
     }
     {
       name: "latitude"
       req: false
+      short: "Latitude coordinate of the buoy"
       type: "`$NUMBER`"
     }
     {
       name: "longitude"
       req: false
+      short: "Longitude coordinate of the buoy"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the buoy station"
       type: "`$STRING`"
     }
     {
       name: "station_id"
       req: false
+      short: "Unique identifier for the buoy station"
       type: "`$STRING`"
     }
     {
       name: "timestamp"
       req: false
+      short: "Timestamp of the reading"
       type: "`$STRING`"
     }
     {
       name: "water_temperature"
       req: false
+      short: "Water temperature in Celsius"
       type: "`$NUMBER`"
     }
     {
       name: "wave_direction"
       req: false
+      short: "Wave direction in degrees"
       type: "`$NUMBER`"
     }
     {
       name: "wave_height"
       req: false
+      short: "Significant wave height in meters"
       type: "`$NUMBER`"
     }
     {
       name: "wind_direction"
       req: false
+      short: "Wind direction in degrees"
       type: "`$NUMBER`"
     }
     {
       name: "wind_speed"
       req: false
+      short: "Wind speed in meters per second"
       type: "`$NUMBER`"
     }
   ]

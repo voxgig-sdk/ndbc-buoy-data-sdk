@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "NdbcBuoyData",
+      slug = "ndbc-buoy-data",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,58 +32,72 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "air_temperature",
+            ["short"] = "Air temperature in Celsius",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "atmospheric_pressure",
+            ["short"] = "Atmospheric pressure in hPa",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "average_wave_period",
+            ["short"] = "Average wave period in seconds",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "dominant_wave_period",
+            ["short"] = "Dominant wave period in seconds",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "latitude",
+            ["short"] = "Latitude coordinate of the buoy",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "longitude",
+            ["short"] = "Longitude coordinate of the buoy",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Name of the buoy station",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "station_id",
+            ["short"] = "Unique identifier for the buoy station",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "timestamp",
+            ["short"] = "Timestamp of the reading",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "water_temperature",
+            ["short"] = "Water temperature in Celsius",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "wave_direction",
+            ["short"] = "Wave direction in degrees",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "wave_height",
+            ["short"] = "Significant wave height in meters",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "wind_direction",
+            ["short"] = "Wind direction in degrees",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "wind_speed",
+            ["short"] = "Wind speed in meters per second",
             ["type"] = "`$NUMBER`",
           },
         },

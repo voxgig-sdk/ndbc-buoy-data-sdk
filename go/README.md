@@ -6,7 +6,7 @@ The Golang SDK for the NdbcBuoyData API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Buoy(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,20 +269,20 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"air_temperature"` |  |
-| `"atmospheric_pressure"` |  |
-| `"average_wave_period"` |  |
-| `"dominant_wave_period"` |  |
-| `"latitude"` |  |
-| `"longitude"` |  |
-| `"name"` |  |
-| `"station_id"` |  |
-| `"timestamp"` |  |
-| `"water_temperature"` |  |
-| `"wave_direction"` |  |
-| `"wave_height"` |  |
-| `"wind_direction"` |  |
-| `"wind_speed"` |  |
+| `"air_temperature"` | Air temperature in Celsius |
+| `"atmospheric_pressure"` | Atmospheric pressure in hPa |
+| `"average_wave_period"` | Average wave period in seconds |
+| `"dominant_wave_period"` | Dominant wave period in seconds |
+| `"latitude"` | Latitude coordinate of the buoy |
+| `"longitude"` | Longitude coordinate of the buoy |
+| `"name"` | Name of the buoy station |
+| `"station_id"` | Unique identifier for the buoy station |
+| `"timestamp"` | Timestamp of the reading |
+| `"water_temperature"` | Water temperature in Celsius |
+| `"wave_direction"` | Wave direction in degrees |
+| `"wave_height"` | Significant wave height in meters |
+| `"wind_direction"` | Wind direction in degrees |
+| `"wind_speed"` | Wind speed in meters per second |
 
 Operations: List, Load.
 
@@ -308,20 +308,20 @@ Create an instance: `buoy := client.Buoy(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_temperature` | `float64` |  |
-| `atmospheric_pressure` | `float64` |  |
-| `average_wave_period` | `float64` |  |
-| `dominant_wave_period` | `float64` |  |
-| `latitude` | `float64` |  |
-| `longitude` | `float64` |  |
-| `name` | `string` |  |
-| `station_id` | `string` |  |
-| `timestamp` | `string` |  |
-| `water_temperature` | `float64` |  |
-| `wave_direction` | `float64` |  |
-| `wave_height` | `float64` |  |
-| `wind_direction` | `float64` |  |
-| `wind_speed` | `float64` |  |
+| `air_temperature` | `float64` | Air temperature in Celsius |
+| `atmospheric_pressure` | `float64` | Atmospheric pressure in hPa |
+| `average_wave_period` | `float64` | Average wave period in seconds |
+| `dominant_wave_period` | `float64` | Dominant wave period in seconds |
+| `latitude` | `float64` | Latitude coordinate of the buoy |
+| `longitude` | `float64` | Longitude coordinate of the buoy |
+| `name` | `string` | Name of the buoy station |
+| `station_id` | `string` | Unique identifier for the buoy station |
+| `timestamp` | `string` | Timestamp of the reading |
+| `water_temperature` | `float64` | Water temperature in Celsius |
+| `wave_direction` | `float64` | Wave direction in degrees |
+| `wave_height` | `float64` | Significant wave height in meters |
+| `wind_direction` | `float64` | Wind direction in degrees |
+| `wind_speed` | `float64` | Wind speed in meters per second |
 
 #### Example: Load
 

@@ -260,20 +260,20 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `air_temperature` |  |
-| `atmospheric_pressure` |  |
-| `average_wave_period` |  |
-| `dominant_wave_period` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `station_id` |  |
-| `timestamp` |  |
-| `water_temperature` |  |
-| `wave_direction` |  |
-| `wave_height` |  |
-| `wind_direction` |  |
-| `wind_speed` |  |
+| `air_temperature` | Air temperature in Celsius |
+| `atmospheric_pressure` | Atmospheric pressure in hPa |
+| `average_wave_period` | Average wave period in seconds |
+| `dominant_wave_period` | Dominant wave period in seconds |
+| `latitude` | Latitude coordinate of the buoy |
+| `longitude` | Longitude coordinate of the buoy |
+| `name` | Name of the buoy station |
+| `station_id` | Unique identifier for the buoy station |
+| `timestamp` | Timestamp of the reading |
+| `water_temperature` | Water temperature in Celsius |
+| `wave_direction` | Wave direction in degrees |
+| `wave_height` | Significant wave height in meters |
+| `wind_direction` | Wind direction in degrees |
+| `wind_speed` | Wind speed in meters per second |
 
 Operations: List, Load.
 
@@ -299,20 +299,20 @@ Create an instance: `$buoy = $client->Buoy();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_temperature` | `float` |  |
-| `atmospheric_pressure` | `float` |  |
-| `average_wave_period` | `float` |  |
-| `dominant_wave_period` | `float` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `name` | `string` |  |
-| `station_id` | `string` |  |
-| `timestamp` | `string` |  |
-| `water_temperature` | `float` |  |
-| `wave_direction` | `float` |  |
-| `wave_height` | `float` |  |
-| `wind_direction` | `float` |  |
-| `wind_speed` | `float` |  |
+| `air_temperature` | `float` | Air temperature in Celsius |
+| `atmospheric_pressure` | `float` | Atmospheric pressure in hPa |
+| `average_wave_period` | `float` | Average wave period in seconds |
+| `dominant_wave_period` | `float` | Dominant wave period in seconds |
+| `latitude` | `float` | Latitude coordinate of the buoy |
+| `longitude` | `float` | Longitude coordinate of the buoy |
+| `name` | `string` | Name of the buoy station |
+| `station_id` | `string` | Unique identifier for the buoy station |
+| `timestamp` | `string` | Timestamp of the reading |
+| `water_temperature` | `float` | Water temperature in Celsius |
+| `wave_direction` | `float` | Wave direction in degrees |
+| `wave_height` | `float` | Significant wave height in meters |
+| `wind_direction` | `float` | Wind direction in degrees |
+| `wind_speed` | `float` | Wind speed in meters per second |
 
 #### Example: Load
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "NdbcBuoyData",
+			"slug": "ndbc-buoy-data",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,58 +36,72 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "air_temperature",
+						"short": "Air temperature in Celsius",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "atmospheric_pressure",
+						"short": "Atmospheric pressure in hPa",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "average_wave_period",
+						"short": "Average wave period in seconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "dominant_wave_period",
+						"short": "Dominant wave period in seconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate of the buoy",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate of the buoy",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the buoy station",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "station_id",
+						"short": "Unique identifier for the buoy station",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timestamp",
+						"short": "Timestamp of the reading",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "water_temperature",
+						"short": "Water temperature in Celsius",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "wave_direction",
+						"short": "Wave direction in degrees",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "wave_height",
+						"short": "Significant wave height in meters",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "wind_direction",
+						"short": "Wind direction in degrees",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "wind_speed",
+						"short": "Wind speed in meters per second",
 						"type": "`$NUMBER`",
 					},
 				},
