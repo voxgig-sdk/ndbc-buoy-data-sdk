@@ -6,36 +6,42 @@ main: kit: entity: buoy: {
 
   fields: [
     {
+      format: "float"
       name: "air_temperature"
       req: false
       short: "Air temperature in Celsius"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "atmospheric_pressure"
       req: false
       short: "Atmospheric pressure in hPa"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "average_wave_period"
       req: false
       short: "Average wave period in seconds"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "dominant_wave_period"
       req: false
       short: "Dominant wave period in seconds"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "latitude"
       req: false
       short: "Latitude coordinate of the buoy"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "longitude"
       req: false
       short: "Longitude coordinate of the buoy"
@@ -54,36 +60,42 @@ main: kit: entity: buoy: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "timestamp"
       req: false
       short: "Timestamp of the reading"
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "water_temperature"
       req: false
       short: "Water temperature in Celsius"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "wave_direction"
       req: false
       short: "Wave direction in degrees"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "wave_height"
       req: false
       short: "Significant wave height in meters"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "wind_direction"
       req: false
       short: "Wind direction in degrees"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "wind_speed"
       req: false
       short: "Wind speed in meters per second"
@@ -99,8 +111,10 @@ main: kit: entity: buoy: {
         {
           method: "GET"
           orig: "/buoys.json"
-          parts: [
-            "buoys.json"
+          segments: [
+            {
+              lit: "buoys.json"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -115,8 +129,10 @@ main: kit: entity: buoy: {
         {
           method: "GET"
           orig: "/buoys.csv"
-          parts: [
-            "buoys.csv"
+          segments: [
+            {
+              lit: "buoys.csv"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -126,8 +142,10 @@ main: kit: entity: buoy: {
         {
           method: "GET"
           orig: "/buoys.html"
-          parts: [
-            "buoys.html"
+          segments: [
+            {
+              lit: "buoys.html"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -137,8 +155,10 @@ main: kit: entity: buoy: {
         {
           method: "GET"
           orig: "/buoys.xml"
-          parts: [
-            "buoys.xml"
+          segments: [
+            {
+              lit: "buoys.xml"
+            }
           ]
           transform: {
             req: "`reqdata`"

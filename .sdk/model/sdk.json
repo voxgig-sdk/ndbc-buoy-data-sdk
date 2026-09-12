@@ -34,6 +34,7 @@
           "fields": [
             {
               "active": true,
+              "format": "float",
               "name": "air_temperature",
               "req": false,
               "short": "Air temperature in Celsius",
@@ -41,6 +42,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "atmospheric_pressure",
               "req": false,
               "short": "Atmospheric pressure in hPa",
@@ -48,6 +50,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "average_wave_period",
               "req": false,
               "short": "Average wave period in seconds",
@@ -55,6 +58,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "dominant_wave_period",
               "req": false,
               "short": "Dominant wave period in seconds",
@@ -62,6 +66,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "latitude",
               "req": false,
               "short": "Latitude coordinate of the buoy",
@@ -69,6 +74,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "longitude",
               "req": false,
               "short": "Longitude coordinate of the buoy",
@@ -90,6 +96,7 @@
             },
             {
               "active": true,
+              "format": "date-time",
               "name": "timestamp",
               "req": false,
               "short": "Timestamp of the reading",
@@ -97,6 +104,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "water_temperature",
               "req": false,
               "short": "Water temperature in Celsius",
@@ -104,6 +112,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "wave_direction",
               "req": false,
               "short": "Wave direction in degrees",
@@ -111,6 +120,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "wave_height",
               "req": false,
               "short": "Significant wave height in meters",
@@ -118,6 +128,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "wind_direction",
               "req": false,
               "short": "Wind direction in degrees",
@@ -125,6 +136,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "wind_speed",
               "req": false,
               "short": "Wind speed in meters per second",
@@ -143,8 +155,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/buoys.json",
-                  "parts": [
-                    "buoys.json"
+                  "segments": [
+                    {
+                      "lit": "buoys.json"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -164,8 +178,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/buoys.csv",
-                  "parts": [
-                    "buoys.csv"
+                  "segments": [
+                    {
+                      "lit": "buoys.csv"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -179,8 +195,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/buoys.html",
-                  "parts": [
-                    "buoys.html"
+                  "segments": [
+                    {
+                      "lit": "buoys.html"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -194,8 +212,10 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/buoys.xml",
-                  "parts": [
-                    "buoys.xml"
+                  "segments": [
+                    {
+                      "lit": "buoys.xml"
+                    }
                   ],
                   "select": {},
                   "transform": {
@@ -275,8 +295,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -416,6 +439,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -441,6 +467,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -492,6 +522,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -516,6 +547,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -567,6 +599,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -591,6 +624,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -631,6 +665,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -656,6 +693,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -690,6 +730,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -715,6 +758,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -755,6 +801,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -780,6 +829,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -825,6 +877,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -850,6 +905,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -867,11 +925,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -900,6 +953,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -924,6 +980,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },

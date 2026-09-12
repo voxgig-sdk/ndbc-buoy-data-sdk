@@ -32,31 +32,37 @@ local function make_config()
       ["buoy"] = {
         ["fields"] = {
           {
+            ["format"] = "float",
             ["name"] = "air_temperature",
             ["short"] = "Air temperature in Celsius",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "atmospheric_pressure",
             ["short"] = "Atmospheric pressure in hPa",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "average_wave_period",
             ["short"] = "Average wave period in seconds",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "dominant_wave_period",
             ["short"] = "Dominant wave period in seconds",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "latitude",
             ["short"] = "Latitude coordinate of the buoy",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "longitude",
             ["short"] = "Longitude coordinate of the buoy",
             ["type"] = "`$NUMBER`",
@@ -72,31 +78,37 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "timestamp",
             ["short"] = "Timestamp of the reading",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "water_temperature",
             ["short"] = "Water temperature in Celsius",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "wave_direction",
             ["short"] = "Wave direction in degrees",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "wave_height",
             ["short"] = "Significant wave height in meters",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "wind_direction",
             ["short"] = "Wind direction in degrees",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "wind_speed",
             ["short"] = "Wind speed in meters per second",
             ["type"] = "`$NUMBER`",
@@ -113,13 +125,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/buoys.json",
-                ["parts"] = {
-                  "buoys.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "buoys.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "buoys.json",
                 },
               },
             },
@@ -133,13 +150,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/buoys.csv",
-                ["parts"] = {
-                  "buoys.csv",
+                ["segments"] = {
+                  {
+                    ["lit"] = "buoys.csv",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "buoys.csv",
                 },
               },
               {
@@ -147,13 +169,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/buoys.html",
-                ["parts"] = {
-                  "buoys.html",
+                ["segments"] = {
+                  {
+                    ["lit"] = "buoys.html",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "buoys.html",
                 },
               },
               {
@@ -161,13 +188,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/buoys.xml",
-                ["parts"] = {
-                  "buoys.xml",
+                ["segments"] = {
+                  {
+                    ["lit"] = "buoys.xml",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "buoys.xml",
                 },
               },
             },

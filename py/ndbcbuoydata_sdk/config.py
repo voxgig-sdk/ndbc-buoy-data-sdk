@@ -1,6 +1,14 @@
 # NdbcBuoyData SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -53,31 +61,37 @@ def make_config():
       "buoy": {
         "fields": [
           {
+            "format": "float",
             "name": "air_temperature",
             "short": "Air temperature in Celsius",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "atmospheric_pressure",
             "short": "Atmospheric pressure in hPa",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "average_wave_period",
             "short": "Average wave period in seconds",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "dominant_wave_period",
             "short": "Dominant wave period in seconds",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "latitude",
             "short": "Latitude coordinate of the buoy",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "longitude",
             "short": "Longitude coordinate of the buoy",
             "type": "`$NUMBER`",
@@ -93,31 +107,37 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "timestamp",
             "short": "Timestamp of the reading",
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "water_temperature",
             "short": "Water temperature in Celsius",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "wave_direction",
             "short": "Wave direction in degrees",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "wave_height",
             "short": "Significant wave height in meters",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "wind_direction",
             "short": "Wind direction in degrees",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "wind_speed",
             "short": "Wind speed in meters per second",
             "type": "`$NUMBER`",
@@ -134,14 +154,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/buoys.json",
-                "parts": [
-                  "buoys.json",
+                "segments": [
+                  {
+                    "lit": "buoys.json",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "buoys.json",
+                ],
               },
             ],
           },
@@ -154,42 +179,57 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/buoys.csv",
-                "parts": [
-                  "buoys.csv",
+                "segments": [
+                  {
+                    "lit": "buoys.csv",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "buoys.csv",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/buoys.html",
-                "parts": [
-                  "buoys.html",
+                "segments": [
+                  {
+                    "lit": "buoys.html",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "buoys.html",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/buoys.xml",
-                "parts": [
-                  "buoys.xml",
+                "segments": [
+                  {
+                    "lit": "buoys.xml",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "buoys.xml",
+                ],
               },
             ],
           },

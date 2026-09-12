@@ -36,31 +36,37 @@ func MakeConfig() map[string]any {
 			"buoy": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "float",
 						"name": "air_temperature",
 						"short": "Air temperature in Celsius",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "atmospheric_pressure",
 						"short": "Atmospheric pressure in hPa",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "average_wave_period",
 						"short": "Average wave period in seconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "dominant_wave_period",
 						"short": "Dominant wave period in seconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "latitude",
 						"short": "Latitude coordinate of the buoy",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "longitude",
 						"short": "Longitude coordinate of the buoy",
 						"type": "`$NUMBER`",
@@ -76,31 +82,37 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "timestamp",
 						"short": "Timestamp of the reading",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "water_temperature",
 						"short": "Water temperature in Celsius",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "wave_direction",
 						"short": "Wave direction in degrees",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "wave_height",
 						"short": "Significant wave height in meters",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "wind_direction",
 						"short": "Wind direction in degrees",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "wind_speed",
 						"short": "Wind speed in meters per second",
 						"type": "`$NUMBER`",
@@ -117,13 +129,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/buoys.json",
-								"parts": []any{
-									"buoys.json",
+								"segments": []any{
+									map[string]any{
+										"lit": "buoys.json",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"buoys.json",
 								},
 							},
 						},
@@ -137,13 +154,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/buoys.csv",
-								"parts": []any{
-									"buoys.csv",
+								"segments": []any{
+									map[string]any{
+										"lit": "buoys.csv",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"buoys.csv",
 								},
 							},
 							map[string]any{
@@ -151,13 +173,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/buoys.html",
-								"parts": []any{
-									"buoys.html",
+								"segments": []any{
+									map[string]any{
+										"lit": "buoys.html",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"buoys.html",
 								},
 							},
 							map[string]any{
@@ -165,13 +192,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/buoys.xml",
-								"parts": []any{
-									"buoys.xml",
+								"segments": []any{
+									map[string]any{
+										"lit": "buoys.xml",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"buoys.xml",
 								},
 							},
 						},
@@ -183,6 +215,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (
