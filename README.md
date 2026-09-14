@@ -105,7 +105,7 @@ local results, err = client:Buoy():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ndbc-buoy-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
 | Python | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
 | PHP | `voxgig-sdk/ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ndbc-buoy-data-sdk/go` | `go get github.com/voxgig-sdk/ndbc-buoy-data-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Buoy():list()
 ### TypeScript
 
 ```ts
-import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data'
+import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data-sdk'
 
 const client = new NdbcBuoyDataSDK()
 

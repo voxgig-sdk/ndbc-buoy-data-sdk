@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data'
+import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data-sdk'
 
 const client = new NdbcBuoyDataSDK()
 ```
@@ -451,7 +451,7 @@ ndbc-buoy-data/
 Import the SDK from the package root:
 
 ```ts
-import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data'
+import { NdbcBuoyDataSDK } from '@voxgig-sdk/ndbc-buoy-data-sdk'
 ```
 
 ### Entity state
