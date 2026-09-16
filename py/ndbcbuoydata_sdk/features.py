@@ -1,12 +1,18 @@
 # NdbcBuoyData SDK feature factory
 
 from ndbcbuoydata_sdk.feature.base_feature import NdbcBuoyDataBaseFeature
+from ndbcbuoydata_sdk.feature.ratelimit_feature import NdbcBuoyDataRatelimitFeature
+from ndbcbuoydata_sdk.feature.retry_feature import NdbcBuoyDataRetryFeature
 from ndbcbuoydata_sdk.feature.test_feature import NdbcBuoyDataTestFeature
+from ndbcbuoydata_sdk.feature.timeout_feature import NdbcBuoyDataTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: NdbcBuoyDataBaseFeature(),
+    "ratelimit": lambda: NdbcBuoyDataRatelimitFeature(),
+    "retry": lambda: NdbcBuoyDataRetryFeature(),
     "test": lambda: NdbcBuoyDataTestFeature(),
+    "timeout": lambda: NdbcBuoyDataTimeoutFeature(),
 }
 
 
