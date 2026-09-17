@@ -105,12 +105,12 @@ local results, err = client:Buoy():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ndbc-buoy-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
-| Python | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
-| PHP | `voxgig-sdk/ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ndbc-buoy-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/tags) |
+| Python | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/tags) |
+| PHP | `voxgig-sdk/ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/ndbc-buoy-data-sdk/go` | `go get github.com/voxgig-sdk/ndbc-buoy-data-sdk/go@latest` |
-| Ruby | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
-| Lua | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/releases) |
+| Ruby | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/tags) |
+| Lua | `voxgig-sdk-ndbc-buoy-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ndbc-buoy-data-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/ndbc-buoy-data-sdk/go-cli` | `go install github.com/voxgig-sdk/ndbc-buoy-data-sdk/go-cli/cmd/ndbc-buoy-data@latest` |
 | Go MCP server | `github.com/voxgig-sdk/ndbc-buoy-data-sdk/go-mcp` | `go get github.com/voxgig-sdk/ndbc-buoy-data-sdk/go-mcp@latest` |
 
