@@ -1,0 +1,40 @@
+# BasicBuoyFlow
+
+main: kit: flow: BasicBuoyFlow:
+{
+  entity: "buoy",
+  kind: "basic",
+  name: "BasicBuoyFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "buoy_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "buoy_ref01",
+        srcdatavar: "buoy_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-buoy_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuoyFlow"
+}

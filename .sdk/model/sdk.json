@@ -24,124 +24,204 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "buoy": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "float",
-              "name": "air_temperature",
-              "req": false,
-              "short": "Air temperature in Celsius",
-              "type": "`$NUMBER`"
+          "fields": {
+            "air_temperature": {
+              "a": true,
+              "fo": "float",
+              "h": "Air Temperature",
+              "n": "air_temperature",
+              "r": false,
+              "sh": "Air temperature in Celsius",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "atmospheric_pressure",
-              "req": false,
-              "short": "Atmospheric pressure in hPa",
-              "type": "`$NUMBER`"
+            "atmospheric_pressure": {
+              "a": true,
+              "fo": "float",
+              "h": "Atmospheric Pressure",
+              "n": "atmospheric_pressure",
+              "r": false,
+              "sh": "Atmospheric pressure in hPa",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "average_wave_period",
-              "req": false,
-              "short": "Average wave period in seconds",
-              "type": "`$NUMBER`"
+            "average_wave_period": {
+              "a": true,
+              "fo": "float",
+              "h": "Average Wave Period",
+              "n": "average_wave_period",
+              "r": false,
+              "sh": "Average wave period in seconds",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "dominant_wave_period",
-              "req": false,
-              "short": "Dominant wave period in seconds",
-              "type": "`$NUMBER`"
+            "dominant_wave_period": {
+              "a": true,
+              "fo": "float",
+              "h": "Dominant Wave Period",
+              "n": "dominant_wave_period",
+              "r": false,
+              "sh": "Dominant wave period in seconds",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "latitude",
-              "req": false,
-              "short": "Latitude coordinate of the buoy",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate of the buoy",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "longitude",
-              "req": false,
-              "short": "Longitude coordinate of the buoy",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate of the buoy",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the buoy station",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the buoy station",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "station_id",
-              "req": false,
-              "short": "Unique identifier for the buoy station",
-              "type": "`$STRING`"
+            "station_id": {
+              "a": true,
+              "h": "Station Id",
+              "n": "station_id",
+              "r": false,
+              "sh": "Unique identifier for the buoy station",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "timestamp",
-              "req": false,
-              "short": "Timestamp of the reading",
-              "type": "`$STRING`"
+            "timestamp": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Timestamp",
+              "n": "timestamp",
+              "r": false,
+              "sh": "Timestamp of the reading",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "water_temperature",
-              "req": false,
-              "short": "Water temperature in Celsius",
-              "type": "`$NUMBER`"
+            "water_temperature": {
+              "a": true,
+              "fo": "float",
+              "h": "Water Temperature",
+              "n": "water_temperature",
+              "r": false,
+              "sh": "Water temperature in Celsius",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "wave_direction",
-              "req": false,
-              "short": "Wave direction in degrees",
-              "type": "`$NUMBER`"
+            "wave_direction": {
+              "a": true,
+              "fo": "float",
+              "h": "Wave Direction",
+              "n": "wave_direction",
+              "r": false,
+              "sh": "Wave direction in degrees",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "wave_height",
-              "req": false,
-              "short": "Significant wave height in meters",
-              "type": "`$NUMBER`"
+            "wave_height": {
+              "a": true,
+              "fo": "float",
+              "h": "Wave Height",
+              "n": "wave_height",
+              "r": false,
+              "sh": "Significant wave height in meters",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "wind_direction",
-              "req": false,
-              "short": "Wind direction in degrees",
-              "type": "`$NUMBER`"
+            "wind_direction": {
+              "a": true,
+              "fo": "float",
+              "h": "Wind Direction",
+              "n": "wind_direction",
+              "r": false,
+              "sh": "Wind direction in degrees",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "wind_speed",
-              "req": false,
-              "short": "Wind speed in meters per second",
-              "type": "`$NUMBER`"
+            "wind_speed": {
+              "a": true,
+              "fo": "float",
+              "h": "Wind Speed",
+              "n": "wind_speed",
+              "r": false,
+              "sh": "Wind speed in meters per second",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "name": "buoy",
           "op": {
             "list": {
@@ -149,24 +229,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /buoys.json",
-                    "json": "{\"operationId\":\"getBuoysJson\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"description\":\"Buoy data object containing real-time readings and station information\",\"properties\":{\"air_temperature\":{\"description\":\"Air temperature in Celsius\",\"example\":18.2,\"format\":\"float\",\"type\":\"number\"},\"atmospheric_pressure\":{\"description\":\"Atmospheric pressure in hPa\",\"example\":1013.2,\"format\":\"float\",\"type\":\"number\"},\"average_wave_period\":{\"description\":\"Average wave period in seconds\",\"example\":10.5,\"format\":\"float\",\"type\":\"number\"},\"dominant_wave_period\":{\"description\":\"Dominant wave period in seconds\",\"example\":14,\"format\":\"float\",\"type\":\"number\"},\"latitude\":{\"description\":\"Latitude coordinate of the buoy\",\"example\":33.749,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate of the buoy\",\"example\":-119.053,\"format\":\"float\",\"type\":\"number\"},\"name\":{\"description\":\"Name of the buoy station\",\"example\":\"Santa Monica Basin\",\"type\":\"string\"},\"station_id\":{\"description\":\"Unique identifier for the buoy station\",\"example\":\"46025\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the reading\",\"example\":\"2023-10-15T14:30:00Z\",\"format\":\"date-time\",\"type\":\"string\"},\"water_temperature\":{\"description\":\"Water temperature in Celsius\",\"example\":15.5,\"format\":\"float\",\"type\":\"number\"},\"wave_direction\":{\"description\":\"Wave direction in degrees\",\"example\":290,\"format\":\"float\",\"type\":\"number\"},\"wave_height\":{\"description\":\"Significant wave height in meters\",\"example\":2.5,\"format\":\"float\",\"type\":\"number\"},\"wind_direction\":{\"description\":\"Wind direction in degrees\",\"example\":315,\"format\":\"float\",\"type\":\"number\"},\"wind_speed\":{\"description\":\"Wind speed in meters per second\",\"example\":7.5,\"format\":\"float\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with buoy data\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/buoys.json",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/buoys.json",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "buoys.json"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -178,70 +258,70 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /buoys.csv",
-                    "json": "{\"operationId\":\"getBuoysCsv\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/csv\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with buoy data\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/buoys.csv",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/buoys.csv",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "buoys.csv"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /buoys.html",
-                    "json": "{\"operationId\":\"getBuoysHtml\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/html\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with buoy data\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/buoys.html",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/buoys.html",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "buoys.html"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /buoys.xml",
-                    "json": "{\"operationId\":\"getBuoysXml\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\",\"xml\":{\"name\":\"buoys\"}}}},\"description\":\"Successful response with buoy data\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/buoys.xml",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/buoys.xml",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "buoys.xml"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -670,13 +750,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -686,17 +766,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "buoy_ref01",
                 "srcdatavar": "buoy_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

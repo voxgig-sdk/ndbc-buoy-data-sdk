@@ -1,0 +1,208 @@
+# Entity: buoy
+
+main: kit: entity: buoy: {
+
+  alias: field: {}
+
+  fields: {
+    air_temperature: {
+      fo: "float"
+      h: "Air Temperature"
+      n: "air_temperature"
+      r: false
+      sh: "Air temperature in Celsius"
+      t: "`$NUMBER`"
+    }
+    atmospheric_pressure: {
+      fo: "float"
+      h: "Atmospheric Pressure"
+      n: "atmospheric_pressure"
+      r: false
+      sh: "Atmospheric pressure in hPa"
+      t: "`$NUMBER`"
+    }
+    average_wave_period: {
+      fo: "float"
+      h: "Average Wave Period"
+      n: "average_wave_period"
+      r: false
+      sh: "Average wave period in seconds"
+      t: "`$NUMBER`"
+    }
+    dominant_wave_period: {
+      fo: "float"
+      h: "Dominant Wave Period"
+      n: "dominant_wave_period"
+      r: false
+      sh: "Dominant wave period in seconds"
+      t: "`$NUMBER`"
+    }
+    latitude: {
+      fo: "float"
+      h: "Latitude"
+      n: "latitude"
+      r: false
+      sh: "Latitude coordinate of the buoy"
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "float"
+      h: "Longitude"
+      n: "longitude"
+      r: false
+      sh: "Longitude coordinate of the buoy"
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the buoy station"
+      t: "`$STRING`"
+    }
+    station_id: {
+      h: "Station Id"
+      n: "station_id"
+      r: false
+      sh: "Unique identifier for the buoy station"
+      t: "`$STRING`"
+    }
+    timestamp: {
+      fo: "date-time"
+      h: "Timestamp"
+      n: "timestamp"
+      r: false
+      sh: "Timestamp of the reading"
+      t: "`$STRING`"
+    }
+    water_temperature: {
+      fo: "float"
+      h: "Water Temperature"
+      n: "water_temperature"
+      r: false
+      sh: "Water temperature in Celsius"
+      t: "`$NUMBER`"
+    }
+    wave_direction: {
+      fo: "float"
+      h: "Wave Direction"
+      n: "wave_direction"
+      r: false
+      sh: "Wave direction in degrees"
+      t: "`$NUMBER`"
+    }
+    wave_height: {
+      fo: "float"
+      h: "Wave Height"
+      n: "wave_height"
+      r: false
+      sh: "Significant wave height in meters"
+      t: "`$NUMBER`"
+    }
+    wind_direction: {
+      fo: "float"
+      h: "Wind Direction"
+      n: "wind_direction"
+      r: false
+      sh: "Wind direction in degrees"
+      t: "`$NUMBER`"
+    }
+    wind_speed: {
+      fo: "float"
+      h: "Wind Speed"
+      n: "wind_speed"
+      r: false
+      sh: "Wind speed in meters per second"
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "buoy"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /buoys.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/buoys.json"
+          s: [
+            {
+              lit: "buoys.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /buoys.csv"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/buoys.csv"
+          s: [
+            {
+              lit: "buoys.csv"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /buoys.html"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/buoys.html"
+          s: [
+            {
+              lit: "buoys.html"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /buoys.xml"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/buoys.xml"
+          s: [
+            {
+              lit: "buoys.xml"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

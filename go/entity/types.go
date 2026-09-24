@@ -1,7 +1,7 @@
 // Typed models for the NdbcBuoyData SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,20 +14,6 @@ import (
 
 // Buoy is the typed data model for the buoy entity.
 type Buoy struct {
-	AirTemperature *float64 `json:"air_temperature,omitempty"`
-	AtmosphericPressure *float64 `json:"atmospheric_pressure,omitempty"`
-	AverageWavePeriod *float64 `json:"average_wave_period,omitempty"`
-	DominantWavePeriod *float64 `json:"dominant_wave_period,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name *string `json:"name,omitempty"`
-	StationId *string `json:"station_id,omitempty"`
-	Timestamp *string `json:"timestamp,omitempty"`
-	WaterTemperature *float64 `json:"water_temperature,omitempty"`
-	WaveDirection *float64 `json:"wave_direction,omitempty"`
-	WaveHeight *float64 `json:"wave_height,omitempty"`
-	WindDirection *float64 `json:"wind_direction,omitempty"`
-	WindSpeed *float64 `json:"wind_speed,omitempty"`
 }
 
 // BuoyLoadMatch is the typed request payload for Buoy.LoadTyped.

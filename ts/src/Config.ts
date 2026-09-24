@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -138,86 +131,100 @@ class Config {
     "buoy": {
       "fields": [
         {
-          "format": "float",
           "name": "air_temperature",
+          "title": "Air Temperature",
+          "type": "`$NUMBER`",
           "short": "Air temperature in Celsius",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "atmospheric_pressure",
+          "title": "Atmospheric Pressure",
+          "type": "`$NUMBER`",
           "short": "Atmospheric pressure in hPa",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "average_wave_period",
+          "title": "Average Wave Period",
+          "type": "`$NUMBER`",
           "short": "Average wave period in seconds",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "dominant_wave_period",
+          "title": "Dominant Wave Period",
+          "type": "`$NUMBER`",
           "short": "Dominant wave period in seconds",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "latitude",
+          "title": "Latitude",
+          "type": "`$NUMBER`",
           "short": "Latitude coordinate of the buoy",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "longitude",
+          "title": "Longitude",
+          "type": "`$NUMBER`",
           "short": "Longitude coordinate of the buoy",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "name",
-          "short": "Name of the buoy station",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the buoy station"
         },
         {
           "name": "station_id",
-          "short": "Unique identifier for the buoy station",
-          "type": "`$STRING`"
+          "title": "Station Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the buoy station"
         },
         {
-          "format": "date-time",
           "name": "timestamp",
+          "title": "Timestamp",
+          "type": "`$STRING`",
           "short": "Timestamp of the reading",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "float",
           "name": "water_temperature",
+          "title": "Water Temperature",
+          "type": "`$NUMBER`",
           "short": "Water temperature in Celsius",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "wave_direction",
+          "title": "Wave Direction",
+          "type": "`$NUMBER`",
           "short": "Wave direction in degrees",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "wave_height",
+          "title": "Wave Height",
+          "type": "`$NUMBER`",
           "short": "Significant wave height in meters",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "wind_direction",
+          "title": "Wind Direction",
+          "type": "`$NUMBER`",
           "short": "Wind direction in degrees",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "wind_speed",
+          "title": "Wind Speed",
+          "type": "`$NUMBER`",
           "short": "Wind speed in meters per second",
-          "type": "`$NUMBER`"
+          "format": "float"
         }
       ],
       "name": "buoy",
@@ -227,7 +234,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/buoys.json",
@@ -236,14 +242,16 @@ class Config {
                   "lit": "buoys.json"
                 }
               ],
-              "select": {},
+              "parts": [
+                "buoys.json"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "buoys.json"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         },
@@ -252,7 +260,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/buoys.csv",
@@ -261,17 +268,18 @@ class Config {
                   "lit": "buoys.csv"
                 }
               ],
-              "select": {},
+              "parts": [
+                "buoys.csv"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "buoys.csv"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/buoys.html",
@@ -280,17 +288,18 @@ class Config {
                   "lit": "buoys.html"
                 }
               ],
-              "select": {},
+              "parts": [
+                "buoys.html"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "buoys.html"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/buoys.xml",
@@ -299,14 +308,16 @@ class Config {
                   "lit": "buoys.xml"
                 }
               ],
-              "select": {},
+              "parts": [
+                "buoys.xml"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "buoys.xml"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }

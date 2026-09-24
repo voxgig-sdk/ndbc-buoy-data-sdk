@@ -43,7 +43,7 @@ local buoys, err = client:Buoy():list()
 if err then error(err) end
 
 for _, item in ipairs(buoys) do
-  print(item["name"])
+  print(item)
 end
 ```
 
